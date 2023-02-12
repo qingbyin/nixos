@@ -4,11 +4,16 @@
 
 { config, pkgs, ... }:
 
+let
+  user = "qyin";
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    ./hardware-configuration.nix
+    (import "${home-manager}/nixos")
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -47,10 +52,11 @@
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+    xkbOptions = "ctrl:swapcaps"; # Remap cap lock to control
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.qyin = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "qyin";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -64,8 +70,18 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    emacs
+    wget
+    firefox-wayland
   ];
+  services.pipewire.enable = true;
+  # Hit Firefox to use Wayland features
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    XDG_CURRENT_DESKTOP = "sway"; 
+  };
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -74,6 +90,15 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  programs.zsh = {
+  zplug = {
+    enable = true;
+    plugins = [
+      { name = "zsh-users/zsh-autosuggestions"; }
+      { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
+    ];
+  };
+};
 
   # List services that you want to enable:
 
