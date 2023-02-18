@@ -10,10 +10,10 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     inputs.nix-colors.homeManagerModule
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
+    # Split up configuration and import pieces of it here:
     ./modules/emacs/emacs.nix
     ./moudles/sway/sway.nix
+    ./modules/fcitx5/fcitx5.nix
   ];
 
   # programs.neovim.enable = true;
@@ -39,6 +39,7 @@
     google-chrome     # Browser
     onlyoffice-bin    # Office
     rclone
+    flameshot         # Screenshot
 
     # File Management
     gnome.file-roller # Archive Manager GUI
