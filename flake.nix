@@ -1,6 +1,10 @@
 {
   description = "My Personal NixOS System Flake Configuration";
-
+  nixConfig = {                                   
+    auto-optimise-store = true;           # Deduplicate and optimise syslinks in nix store
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+  };
   inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
     {
       # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable";                  # Nix Packages
@@ -24,21 +28,21 @@
       # Home-manager requires 'pkgs' instance
       pkgs = import nixpkgs {
         inherit system;
-        config.allowunfree = true; # allow proprietary software
+        config.allowUnfree = true; # allow proprietary software
       };
     in 
     {
       nixosConfigurations.work = nixpkgs.lib.nixosSystem {
         inherit system; # Specify nixos platform of this host
-        specialArgs = {inherit inputs config pkgs user;};
+        specialArgs = {inherit inputs pkgs user;}; # args pass to modules
         modules = [
           ./configuration.nix 
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true; # Use the system level nixpkgs
-          #   home-manager.useUserPackages = true; # Install packages to /etc/profiles
-          #   home-manager.users.${user} = import ./home.nix;
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true; # Use the system level nixpkgs
+            home-manager.useUserPackages = true; # Install packages to /etc/profiles
+            home-manager.users.${user} = import ./home.nix {inherit inputs pkgs user;};
+          }
         ];
       };
     };

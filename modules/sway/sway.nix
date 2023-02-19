@@ -34,10 +34,9 @@ in
       enable = true;
       target = "sway-session.target";
     };
-    settings = builtins.readFile ./waybar.json;
     style = builtins.readFile ./waybar.css;
   };
-  security.polkit.enable = true;
+  xdg.configFile."waybar/config".source = ./waybar.json;
 
   # Wallpaper
   home.file.".config/backgrounds/${image}".source = ./${image};
@@ -46,7 +45,5 @@ in
     key_up = Control_L-k
     key_down = Control_L-j
     '';
-
-
 }
 

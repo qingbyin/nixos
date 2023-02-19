@@ -1,6 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, lib, config, pkgs, user, ... }: {
+{ inputs, pkgs, user, ... }: {
 
   home = {
     username = "${user}";
@@ -8,15 +8,11 @@
   };
 
   imports = [
-    # If you want to use home-manager modules from other flakes (such as nix-colors):
-    inputs.nix-colors.homeManagerModule
     # Split up configuration and import pieces of it here:
-    ./modules/emacs/emacs.nix
-    ./moudles/sway/sway.nix
+    # ./modules/emacs/emacs.nix
+    ./modules/sway/sway.nix
     ./modules/fcitx5/fcitx5.nix
   ];
-
-  # programs.neovim.enable = true;
 
   # Packages that should be installed to the user profile
   home.packages = with pkgs; [
@@ -86,62 +82,7 @@
     userEmail = "qingbyin@gmail.com";
   };
 
-   programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
-
-  programs.firefox = {
-  enable = true;
-  package = pkgs.firefox.override {
-    nixExtensions = with pkgs; [
-      (fetchFirefoxAddon {
-        name = "catcatch";
-        url = "https://addons.mozilla.org/firefox/downloads/file/4066808/cat_catch-2.3.1.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "switchyomega";
-        url = "https://addons.mozilla.org/firefox/downloads/file/1056777/switchyomega-2.5.20.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "sci-hub";
-        url = "https://addons.mozilla.org/firefox/downloads/file/4067800/sci_hub_x_now-0.2.2.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "org-capture";
-        url = "https://addons.mozilla.org/firefox/downloads/file/1127481/org_capture-0.2.1.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "org-link";
-        url = "https://addons.mozilla.org/firefox/downloads/file/856347/org_link-1.0.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "adblock-plus";
-        url = "https://addons.mozilla.org/firefox/downloads/file/4067141/adblock_plus-3.16.1.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "copy-selection-as-markdown";
-        url = "https://addons.mozilla.org/firefox/downloads/file/3802383/copy_selection_as_markdown-0.21.0.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "FreeDownloadManager";
-        url = "https://addons.mozilla.org/firefox/downloads/file/3854169/free_download_manager_addon-3.0.57.xpi";
-      })
-      (fetchFirefoxAddon {
-        name = "Tampermonkey";
-        url = "https://addons.mozilla.org/firefox/downloads/file/4030629/tampermonkey-4.18.1.xpi";
-      })
-    ];
-
-    cfg = {
-      # Gnome shell native connector
-      enableGnomeExtensions = true;
-      # Tridactyl native connector
-      enableTridactylNative = true;
-    };
-  };
-};
-
+  programs.gpg.enable = true;
 
   # Network manager tray icon
   services.network-manager-applet.enable = true;

@@ -17,10 +17,12 @@
 
   # Nix Package Manager settings
   nix = {                                   
-    settings = {
-      auto-optimise-store = true;           # Deduplicate and optimise syslinks in nix store
-      experimental-features = [ "nix-command" "flakes" ];
-    };
+    # settings = {
+    #   auto-optimise-store = true;           # Deduplicate and optimise syslinks in nix store
+    #   experimental-features = [ "nix-command" "flakes" ];
+    #   substituters = pkgs.lib.mkBefore [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+    #   trusted-substituters = pkgs.lib.mkBefore [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+    # };
     # Automatic garbage collection
     gc = {
       automatic = true;
@@ -74,8 +76,6 @@
     packages = with pkgs; [];
   };
   security.sudo.wheelNeedsPassword = false; # User does not need to give password when using sudo.
-
-  pkgs.config.allowUnfree = true;        # Allow proprietary software.
 
   fonts = {
     enableDefaultFonts = true;
@@ -143,6 +143,8 @@
   services.udisks2.enable = true;
   # Required by bluman-applet
   services.blueman.enable = true;
+  # Required by wayland
+  security.polkit.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
