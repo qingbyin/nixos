@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{inputs, config, pkgs, user, ... }:
+{pkgs, user, ... }:
 
 {
   imports = [
@@ -33,7 +33,6 @@
   networking = {
     hostName = "${user}";
     networkmanager.enable = true; # Enable networking
-    wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     hosts = {
       "185.199.109.133" = [ "raw.githubusercontent.com" ];
       "185.199.111.133" = [ "raw.githubusercontent.com" ];
@@ -76,13 +75,16 @@
   };
   security.sudo.wheelNeedsPassword = false; # User does not need to give password when using sudo.
 
+  pkgs.config.allowUnfree = true;        # Allow proprietary software.
+
   fonts = {
     enableDefaultFonts = true;
     fonts = with pkgs; [                
     carlito                                 # NixOS
     vegur                                   # NixOS
-    source-han
-    wqy-microhei
+    source-han-sans
+    source-han-serif
+    wqy_microhei
     source-code-pro
     jetbrains-mono
     font-awesome                            # Icons
@@ -108,7 +110,7 @@
   ];
 
   # backlight management for Wayland
-  program.light.enable = true;
+  programs.light.enable = true;
 
   # Sound (required by screensharing)
   services.pipewire = {
@@ -127,10 +129,12 @@
   # Setup a ssh server (Enable other machine to connect this host).
   services.openssh = {
     enable = true;
-    # Forbid root login through SSH.
-    permitRootLogin = "no";
-    # Use keys only. Remove if you want to SSH using password (not recommended)
-    passwordAuthentication = false;
+    settings = {
+      # Forbid root login through SSH.
+      permitRootLogin = "no";
+      # Use keys only. Remove if you want to SSH using password (not recommended)
+      passwordAuthentication = false;
+    };
     # sftp: interactive program to copy files over ssh
     allowSFTP = true;                     
   };

@@ -54,7 +54,6 @@
   # Install packages with plugins and configs
 
   # Terminal
-  programs.foot.enable = true;
   programs.foot = {
     enable = true;
     settings = {
@@ -94,8 +93,8 @@
 
   programs.firefox = {
   enable = true;
-  package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-    nixExtensions = [
+  package = pkgs.firefox.override {
+    nixExtensions = with pkgs; [
       (fetchFirefoxAddon {
         name = "catcatch";
         url = "https://addons.mozilla.org/firefox/downloads/file/4066808/cat_catch-2.3.1.xpi";
@@ -134,12 +133,11 @@
       })
     ];
 
-    extraPolicies = {
+    cfg = {
       # Gnome shell native connector
       enableGnomeExtensions = true;
       # Tridactyl native connector
       enableTridactylNative = true;
-      ExtensionSettings = {};
     };
   };
 };

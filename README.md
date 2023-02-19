@@ -20,9 +20,9 @@ nixos-generate-config --root /mnt
 4. Clone/copy this repository locally
 
 ```bash
+nix-shell -p git
 git clone https://github.com/qyin/flakes.git ~/.nixos 
 cd ~/.nixos
-nix develop --extra-experimental-features 'nix-command flakes'
 ```
 
 4 Choose a `<hostname>` from `./hosts/`
