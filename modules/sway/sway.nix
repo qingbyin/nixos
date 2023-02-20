@@ -45,5 +45,7 @@ in
     key_up = Control_L-k
     key_down = Control_L-j
     '';
+  # Enable wayland support for chrome and electron apps
+  home.sessionVariables.NIXOS_OZONE_WL = "1";
 }
 

@@ -1,6 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs, pkgs, user, ... }: {
+{ pkgs, user, ... }: {
 
   home = {
     username = "${user}";
@@ -31,8 +31,6 @@
 
     # Apps
     appimage-run      # Runs AppImages on NixOS
-    firefox-wayland
-    google-chrome     # Browser
     onlyoffice-bin    # Office
     rclone
     flameshot         # Screenshot
@@ -64,7 +62,6 @@
     };
   };
 
-
   programs.zsh = {
     enable = true;
     zplug = {
@@ -83,6 +80,15 @@
   };
 
   programs.gpg.enable = true;
+
+  programs.chromium = {
+    enable = true;
+    package = pkgs.google-chrome; 
+    extensions = [
+      "padekgcemlokbadohgkifijomclgjgif" # SwitchyOmega
+    ];
+  };
+
 
   # Network manager tray icon
   services.network-manager-applet.enable = true;

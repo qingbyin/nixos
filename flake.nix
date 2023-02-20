@@ -41,7 +41,7 @@
           {
             home-manager.useGlobalPkgs = true; # Use the system level nixpkgs
             home-manager.useUserPackages = true; # Install packages to /etc/profiles
-            home-manager.users.${user} = import ./home.nix {inherit inputs pkgs user;};
+            home-manager.users.${user} = import ./home.nix {inherit pkgs user;};
           }
         ];
       };
