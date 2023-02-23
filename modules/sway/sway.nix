@@ -11,6 +11,7 @@ in
     config.output = { "*" = {bg = ".config/backgrounds/${image} fill";};};
     # Extra configuration to add to ~/.config/sway/config
     extraConfig = builtins.readFile ./sway.conf;
+    extraOptions = [ "--unsupported-gpu" ]; # For Nvidia GPU
   };
 
   # Dependencies

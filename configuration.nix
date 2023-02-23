@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 
-{pkgs, user, ... }:
+{config, pkgs, user, ... }:
 
 {
   imports = [
@@ -17,12 +17,6 @@
 
   # Nix Package Manager settings
   nix = {                                   
-    # settings = {
-    #   auto-optimise-store = true;           # Deduplicate and optimise syslinks in nix store
-    #   experimental-features = [ "nix-command" "flakes" ];
-    #   substituters = pkgs.lib.mkBefore [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
-    #   trusted-substituters = pkgs.lib.mkBefore [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
-    # };
     # Automatic garbage collection
     gc = {
       automatic = true;
@@ -107,6 +101,10 @@
     usbutils # lsusb
     pciutils # lspci
     xdg-utils
+    # OpenGL
+    glxinfo
+    vulkan-tools
+    glmark2
   ];
 
   # backlight management for Wayland
@@ -124,6 +122,8 @@
     layout = "us";
     xkbVariant = "";
     xkbOptions = "ctrl:swapcaps"; # Remap cap lock to control
+    # For nvidia support with wayland
+    videoDrivers = ["intel" "nvidia" ];
   };
 
   # Setup a ssh server (Enable other machine to connect this host).
@@ -145,6 +145,12 @@
   services.blueman.enable = true;
   # Required by wayland
   security.polkit.enable = true;
+
+  # Nvidia
+  hardware.nvidia.modesetting.enable = true; # TO find the primary display
+  hardware.nvidia.package =  config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.powerManagement.enable = false;
+  hardware.opengl.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
