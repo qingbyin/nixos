@@ -3,6 +3,7 @@
   nixConfig = {                                   
     auto-optimise-store = true;           # Deduplicate and optimise syslinks in nix store
     experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
     trusted-substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   };
   inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
