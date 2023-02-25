@@ -10,7 +10,7 @@
   imports = [
     # Split up configuration and import pieces of it here:
     # ./modules/emacs/emacs.nix
-    ./modules/sway/sway.nix
+    ./modules/i3/i3.nix
     ./modules/fcitx5/fcitx5.nix
   ];
 
@@ -34,6 +34,7 @@
     onlyoffice-bin    # Office
     rclone
     flameshot         # Screenshot
+    goldendict
 
     # File Management
     gnome.file-roller # Archive Manager GUI

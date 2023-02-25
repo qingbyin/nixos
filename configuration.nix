@@ -107,15 +107,16 @@
     glmark2
   ];
 
-  # backlight management for Wayland
-  programs.light.enable = true;
-
   # Sound (required by screensharing)
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
+
+  # If your settings aren't being saved for some applications (gtk3 applications, firefox),
+  # like the size of file selection windows, or the size of the save dialog, you will need to enable dconf
+  programs.dconf.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
