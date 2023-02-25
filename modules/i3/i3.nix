@@ -18,8 +18,9 @@
     i3status-rust
     i3lock-color
     xautolock
-    lxappearance # Modify icon and themes
     rofi
+    lxappearance # Modify icon and themes
+    nitrogen
   ];
 
   services.unclutter.enable = true; # Auto hide cursor
