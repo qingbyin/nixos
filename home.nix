@@ -10,40 +10,8 @@
   imports = [
     # Split up configuration and import pieces of it here:
     # ./modules/emacs/emacs.nix
-    ./modules/i3/i3.nix
+    ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5.nix
-  ];
-
-  # Packages that should be installed to the user profile
-  home.packages = with pkgs; [
-    # Terminal
-    btop              # Resource Manager
-    nitch             # Minimal fetch (faster than screenfetch)
-    ranger            # File Manager
-    tldr              # Helper (simplified man pages)
-
-    # Video/Audio
-    mpv               # Media Player
-    pavucontrol       # Audio Control
-    plex-media-player # Media Player
-    vlc               # Media Player
-    stremio           # Media Streamer
-
-    # Apps
-    appimage-run      # Runs AppImages on NixOS
-    onlyoffice-bin    # Office
-    rclone
-    flameshot         # Screenshot
-    goldendict
-
-    # File Management
-    gnome.file-roller # Archive Manager GUI
-    okular            # PDF Viewer
-    pcmanfm           # File Manager GUI
-    rsync             # Syncer - $ rsync -r dir1/ dir2/
-    unzip             # Zip Files
-    unrar             # Rar Files
-    zip               # Zip
   ];
 
   # Install packages with plugins and configs

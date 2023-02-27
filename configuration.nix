@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/i3/i3-nixos.nix
   ];
 
   # Bootloader.
@@ -105,6 +106,35 @@
     glxinfo
     vulkan-tools
     glmark2
+
+    # Terminal
+    btop              # Resource Manager
+    nitch             # Minimal fetch (faster than screenfetch)
+    ranger            # File Manager
+    tldr              # Helper (simplified man pages)
+
+    # Video/Audio
+    mpv               # Media Player
+    pavucontrol       # Audio Control
+    plex-media-player # Media Player
+    vlc               # Media Player
+    stremio           # Media Streamer
+
+    # Apps
+    appimage-run      # Runs AppImages on NixOS
+    onlyoffice-bin    # Office
+    rclone
+    flameshot         # Screenshot
+    goldendict
+
+    # File Management
+    gnome.file-roller # Archive Manager GUI
+    okular            # PDF Viewer
+    pcmanfm           # File Manager GUI
+    rsync             # Syncer - $ rsync -r dir1/ dir2/
+    unzip             # Zip Files
+    unrar             # Rar Files
+    zip               # Zip
   ];
 
   # Sound (required by screensharing)
@@ -120,11 +150,18 @@
 
   # Configure keymap in X11
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "";
     xkbOptions = "ctrl:swapcaps"; # Remap cap lock to control
     # For nvidia support with wayland
     videoDrivers = ["intel" "nvidia" ];
+    desktopManager = {
+      xterm.enable = false;
+    };
+    displayManager = {
+        defaultSession = "none+i3";
+    };
   };
 
   # Setup a ssh server (Enable other machine to connect this host).
