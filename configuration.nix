@@ -156,12 +156,6 @@
     xkbOptions = "ctrl:swapcaps"; # Remap cap lock to control
     # For nvidia support with wayland
     videoDrivers = ["intel" "nvidia" ];
-    desktopManager = {
-      xterm.enable = false;
-    };
-    displayManager = {
-        defaultSession = "none+i3";
-    };
   };
 
   # Setup a ssh server (Enable other machine to connect this host).

@@ -30,6 +30,7 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true; # allow proprietary software
+        config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
       };
     in 
     {

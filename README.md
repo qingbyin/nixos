@@ -1,15 +1,10 @@
 # NixOS Installation
 
-1. Prepare a 64-bit nixos [minimal iso image](https://channels.nixos.org/nixos-22.11/latest-nixos-minimal-x86_64-linux.iso)
+1. Prepare a 64-bit nixos with [GNOME](https://channels.nixos.org/nixos-22.11/latest-nixos-gnome-x86_64-linux.iso)
    and burn it, then enter the live system.
 
-2. Partitioning using `Gparted`
-```bash
-Device -> Cresate partition table -> gpt (efi boot)
-Add new partition -> fileSystem:ex4/linux-swap
-Manage flags -> boot for ext4
-Label partitions
-```
+2. Follow installation GUI guide to install NixOS with `GNOME`
+   (even `GNOME` is not used later) and reboot
 
 3. Generate a basic configuration
 

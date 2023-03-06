@@ -4,7 +4,7 @@
 
 {
   home.file.".i3/config".source = ./i3.conf;
-  xdg.configFile."i3status-rust/config".source = ./i3status.toml;
+  xdg.configFile."i3status-rust/config.toml".source = ./i3status.toml;
   # rofi config
   xdg.configFile."rofi/android_notification.rasi".source = ./rofi-theme.rasi;
   xdg.configFile."rofi/config".text = ''
