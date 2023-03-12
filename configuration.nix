@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hosts/vm/hardware-configuration.nix
     ./modules/i3/i3-nixos.nix
   ];
 

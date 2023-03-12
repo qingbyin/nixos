@@ -3,14 +3,29 @@
   nixConfig = {                                   
     auto-optimise-store = true;           # Deduplicate and optimise syslinks in nix store
     experimental-features = [ "nix-command" "flakes" ];
-    substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
-    trusted-substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://nix-community.cachix.org"
+      "https://cache.nixos.org/"
+    ];
+    trusted-substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
+      "https://nix-community.cachix.org"
+    ];
   };
   inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
     {
-      # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable";                  # Nix Packages
       nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-      nur.url = "github:nix-community/NUR"; # NUR Packages
+      nur.url = "github:nix-community/NUR";
+
+      # Tools to customize ISO image
+      nixos-generators = {
+        url = github:nix-community/nixos-generators;
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      # A collection covers common hardware
+      nixos-hardware.url = "github:nixos/nixos-hardware";
+
       impermanence.url = "github:nix-community/impermanence";
       nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
@@ -34,7 +49,7 @@
       };
     in 
     {
-      nixosConfigurations.work = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
         inherit system; # Specify nixos platform of this host
         specialArgs = {inherit inputs pkgs user;}; # args pass to modules
         modules = [

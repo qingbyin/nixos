@@ -41,6 +41,12 @@ nixos-install --no-root-passwd --flake .#<hostname>
 reboot
 ```
 
+8. Update (rebuild)
+
+```bash
+nixos-rebuild switch --flake .#<hostname>
+```
+
 ## Refs
 
 * [MatthiasBenaets](https://github.com/MatthiasBenaets)
