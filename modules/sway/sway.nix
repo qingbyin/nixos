@@ -37,10 +37,26 @@ in
     };
     style = builtins.readFile ./waybar.css;
   };
+
+  # Terminal
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        term = "xterm-256color";
+        font = "FiraCode Nerd Font Mono:size=12, WenQuanYi Micro Hei:size=12";
+        dpi-aware = "yes";
+      };
+      mouse = {
+        hide-when-typing = "yes";
+      };
+    };
+  };
+
   xdg.configFile."waybar/config".source = ./waybar.json;
 
   # Wallpaper
-  home.file.".config/backgrounds/${image}".source = ./${image};
+  home.file.".config/backgrounds/${image}".source = ../common/${image};
   # wofi config
   xdg.configFile."wofi/config".text = ''
     key_up = Control_L-k

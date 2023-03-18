@@ -17,17 +17,19 @@
   # Install packages with plugins and configs
 
   # Terminal
-  programs.foot = {
+  programs.kitty = {
     enable = true;
+    font.name = "FiraCode Nerd Font";
+    font.size = 12;
+    theme = "Oceanic Material";
     settings = {
-      main = {
-        term = "xterm-256color";
-        font = "FiraCode Nerd Font Mono:size=12, WenQuanYi Micro Hei:size=12";
-        dpi-aware = "yes";
-      };
-      mouse = {
-        hide-when-typing = "yes";
-      };
+      italic_font = "auto";
+      bold_italic_font = "auto";
+      mouse_hide_wait = 2;
+      confirm_os_window_close = 0;
+    };
+    keybindings = {
+      "ctrl+shift+s" = "set_tab_title";
     };
   };
 

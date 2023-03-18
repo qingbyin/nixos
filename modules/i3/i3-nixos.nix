@@ -10,7 +10,6 @@
       xautolock
       rofi
       lxappearance # Modify icon and themes
-      nitrogen
    ];
   };
   # Without a display manager

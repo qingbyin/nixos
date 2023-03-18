@@ -10,6 +10,7 @@
     ];
   };
   
+  xdg.configFile."fcitx5/conf/pinyin.conf".force = true;
   xdg.configFile."fcitx5/conf/pinyin.conf".source = ./pinyin.conf;
   xdg.configFile."fcitx5/conf/classicui.conf".source = ./classicui.conf;
 }

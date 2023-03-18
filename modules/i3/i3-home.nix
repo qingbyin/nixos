@@ -4,6 +4,7 @@
 
 {
   home.file.".i3/config".source = ./i3.conf;
+  home.file.".background-image".source = ../common/watercolor-grunge.jpg;
   xdg.configFile."i3status-rust/config.toml".source = ./i3status.toml;
   # rofi config
   xdg.configFile."rofi/android_notification.rasi".source = ./rofi-theme.rasi;
@@ -16,4 +17,7 @@
   }
   @theme ".config/rofi/android_notification.rasi"
   '';
+
+  # Notification daemon
+  services.dunst.enable = true;
 }
