@@ -11,7 +11,7 @@
     # Split up configuration and import pieces of it here:
     # ./modules/emacs/emacs.nix
     ./modules/i3/i3-home.nix
-    ./modules/fcitx5/fcitx5.nix
+    ./modules/fcitx5/fcitx5-home.nix
   ];
 
   # Install packages with plugins and configs
