@@ -53,7 +53,7 @@
         inherit system; # Specify nixos platform of this host
         specialArgs = {inherit inputs pkgs user;}; # args pass to modules
         modules = [
-          ./configuration.nix 
+          ./hosts/vm/vm-nixos.nix 
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true; # Use the system level nixpkgs

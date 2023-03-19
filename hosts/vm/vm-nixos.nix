@@ -7,15 +7,14 @@
 
 {
   imports = [
-    ./hosts/vm/hardware-configuration.nix
-    ./modules/i3/i3-nixos.nix
-    ./modules/fcitx5/fcitx5-nixos.nix
+    ./hardware-configuration.nix
+    ../../modules/i3/i3-nixos.nix
+    ../../modules/fcitx5/fcitx5-nixos.nix
   ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   # Nix Package Manager settings
   nix = {                                   
@@ -156,9 +155,9 @@
     layout = "us";
     xkbVariant = "";
     xkbOptions = "ctrl:nocaps"; # Remap cap lock to control
-    # For nvidia support with wayland
-    videoDrivers = ["intel" "nvidia" ];
   };
+
+  services.xserver.displayManager.gdm.enable = true;
 
   # Setup a ssh server (Enable other machine to connect this host).
   services.openssh = {
@@ -180,11 +179,7 @@
   # Required by wayland
   security.polkit.enable = true;
 
-  # Nvidia
-  hardware.nvidia.modesetting.enable = true; # TO find the primary display
-  hardware.nvidia.package =  config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.nvidia.powerManagement.enable = false;
-  hardware.opengl.enable = true;
+  virtualisation.vmware.guest.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
