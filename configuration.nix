@@ -9,6 +9,7 @@
   imports = [
     ./hosts/vm/hardware-configuration.nix
     ./modules/i3/i3-nixos.nix
+    ./modules/fcitx5/fcitx5-nixos.nix
   ];
 
   # Bootloader.
