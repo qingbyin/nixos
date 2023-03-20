@@ -1,50 +1,36 @@
-# NixOS Installation
+# Nix Home Manager + Ubuntu
 
-1. Prepare a 64-bit nixos with [GNOME](https://channels.nixos.org/nixos-22.11/latest-nixos-gnome-x86_64-linux.iso)
-   and burn it, then enter the live system.
-
-2. Follow installation GUI guide to install NixOS with `GNOME`
-   (even `GNOME` is not used later) and reboot
-
-3. Generate a basic configuration
+1. Install `nix`
 
 ```bash
-nixos-generate-config --root /mnt
+sh <(curl -L https://nixos.org/nix/install)
 ```
 
-4. Clone/copy this repository locally
+2. Enable `flakes`
+
+```bash
+echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+```
+
+3. Clone/copy this repository locally
 
 ```bash
 nix-shell -p git
-git clone https://github.com/qyin/flakes.git ~/.nixos 
-cd ~/.nixos
+git clone https://github.com/qyin/flakes.git ~/.nix 
+cd ~/.nix
 ```
 
-4 Choose a `<hostname>` from `./hosts/`
-  * `desktop`:
-  * `laptop`:
-  * `work`:
+4. First Build 
 
-5. Move `hardware-configuration.nix` to the host directory
 ```bash
-cp /mnt/etc/nixos/hardware-configuration.nix ~/.nixos/hosts/<hostname>/hardware-configuration.nix
-```
-- May modify root directory with `tmpfs` 
-
-6. Build the selected host
-```bash
-nixos-install --no-root-passwd --flake .#<hostname>
+nix build .#homeConfigurations.<host>.activationPackage
+./result/activate
 ```
 
-7. Reboot
-```bash
-reboot
-```
-
-8. Update (rebuild)
+5. Update (Rebuild). After the first installation, we don’t need to target /activate inside /result.
 
 ```bash
-nixos-rebuild switch --flake .#<hostname>
+home-manager switch --flake ~/.nix#qyin
 ```
 
 ## Refs

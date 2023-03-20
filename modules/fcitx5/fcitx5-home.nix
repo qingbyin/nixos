@@ -1,6 +1,20 @@
 { config, pkgs, ... }:
 
 {
+  # home manager fcitxt5.nix will do:
+  # 1. Add env like GLFW_IM_MODULE will be auto added by fcitx5.nix
+  # 2. Run fcitx5-daemon
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-chinese-addons
+      fcitx5-table-extra
+      fcitx5-gtk
+    ];
+  };
+  home.packages = [pkgs.rime-data];
+
   xdg.configFile."fcitx5/profile".force = true;
   xdg.configFile."fcitx5/profile".source = ./profile;
   xdg.configFile."fcitx5/config".force = true;

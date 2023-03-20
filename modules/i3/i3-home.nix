@@ -3,6 +3,22 @@
 { config, pkgs, ... }:
 
 {
+
+  xsession.enable = true;
+  xsession.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3-gaps;
+  };
+
+  home.packages = with pkgs; [
+      i3status-rust
+      i3lock-color
+      xautolock
+      rofi
+      lxappearance # Modify icon and themes
+  ];
+
+
   home.file.".i3/config".source = ./i3.conf;
   home.file.".background-image".source = ../common/watercolor-grunge.jpg;
   xdg.configFile."i3status-rust/config.toml".source = ./i3status.toml;

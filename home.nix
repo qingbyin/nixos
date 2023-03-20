@@ -15,6 +15,63 @@
   ];
 
   # Install packages with plugins and configs
+  fonts.fontconfig.enable = true;
+  home.packages = with pkgs; [
+    # Fonts
+    source-han-sans
+    source-han-serif
+    wqy_microhei
+    source-code-pro
+    jetbrains-mono
+    font-awesome 
+    corefonts # MS (e.g. Time New Roman)
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })# Nerdfont Icons override
+
+    vim
+    wget
+    usbutils # lsusb
+    pciutils # lspci
+    xdg-utils
+    # OpenGL
+    glxinfo
+    vulkan-tools
+    glmark2
+
+    # Terminal
+    btop              # Resource Manager
+    nitch             # Minimal fetch (faster than screenfetch)
+    ranger            # File Manager
+    tldr              # Helper (simplified man pages)
+
+    # Video/Audio
+    mpv               # Media Player
+    pavucontrol       # Audio Control
+    plex-media-player # Media Player
+    vlc               # Media Player
+    stremio           # Media Streamer
+
+    # Apps
+    appimage-run      # Runs AppImages on NixOS
+    onlyoffice-bin    # Office
+    rclone
+    flameshot         # Screenshot
+    goldendict
+
+    # File Management
+    gnome.file-roller # Archive Manager GUI
+    okular            # PDF Viewer
+    pcmanfm           # File Manager GUI
+    rsync             # Syncer - $ rsync -r dir1/ dir2/
+    unzip             # Zip Files
+    unrar             # Rar Files
+    zip               # Zip
+  ];
+
+  # Configure keymap in X11
+  services.xcape = {
+    enable = true;
+    mapExpression = { Caps_Lock = "Control_L";};
+  };
 
   # Terminal
   programs.kitty = {
@@ -77,6 +134,8 @@
 
   # Auto mount usb
   services.udiskie.enable = true;
+  # Auto hide cursor
+  services.unclutter.enable = true; # Auto hide cursor
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

@@ -18,14 +18,6 @@
       nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       nur.url = "github:nix-community/NUR";
 
-      # Tools to customize ISO image
-      nixos-generators = {
-        url = github:nix-community/nixos-generators;
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-      # A collection covers common hardware
-      nixos-hardware.url = "github:nixos/nixos-hardware";
-
       impermanence.url = "github:nix-community/impermanence";
       nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
@@ -35,13 +27,10 @@
       };
     };
 
-    # Function that tells my flake which to use and what do what to do with the dependencies.
     outputs = { nixpkgs, home-manager, ... } @inputs:
     let                                                                     
       user = "qyin";
-      # location = "$HOME/.nixos"; # the path of this NixOS config
       system = "x86_64-linux";
-      # Home-manager requires 'pkgs' instance
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true; # allow proprietary software
@@ -49,18 +38,11 @@
       };
     in 
     {
-      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-        inherit system; # Specify nixos platform of this host
-        specialArgs = {inherit inputs pkgs user;}; # args pass to modules
-        modules = [
-          ./hosts/vm/vm-nixos.nix 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true; # Use the system level nixpkgs
-            home-manager.useUserPackages = true; # Install packages to /etc/profiles
-            home-manager.users.${user} = import ./home.nix {inherit pkgs user;};
-          }
-        ];
+      homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
+        # pass through arguments to home.nix
+        extraSpecialArgs = {inherit inputs pkgs user;};
       };
     };
 }
