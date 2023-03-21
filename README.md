@@ -20,17 +20,17 @@ git clone https://github.com/qyin/flakes.git ~/.nix
 cd ~/.nix
 ```
 
-4. First Build 
+4. Install Home Manager and apply the configuration by
 
 ```bash
-nix build .#homeConfigurations.<host>.activationPackage
+nix run .#homeConfigurations.<host>.activationPackage
 ./result/activate
 ```
 
-5. Update (Rebuild). After the first installation, we don’t need to target /activate inside /result.
+5. Once home-manager is installed, update (Rebuild) the configuration
 
 ```bash
-home-manager switch --flake ~/.nix#qyin
+home-manager switch --flake .#qyin
 ```
 
 ## Refs
