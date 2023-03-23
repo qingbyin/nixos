@@ -4,10 +4,15 @@
 
 {
 
-  xsession.enable = true;
+  xsession = {
+    enable = true;
+    scriptPath = ".xsessionrc";
+  };
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
+    config = null;
+    extraConfig = builtins.readFile ./i3.conf;
   };
 
   home.packages = with pkgs; [
@@ -19,7 +24,6 @@
   ];
 
 
-  home.file.".i3/config".source = ./i3.conf;
   home.file.".background-image".source = ../common/watercolor-grunge.jpg;
   xdg.configFile."i3status-rust/config.toml".source = ./i3status.toml;
   # rofi config
