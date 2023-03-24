@@ -83,6 +83,7 @@
       bold_italic_font = "auto";
       mouse_hide_wait = 2;
       confirm_os_window_close = 0;
+      shell = "zsh";
     };
     keybindings = {
       "ctrl+shift+s" = "set_tab_title";
@@ -116,23 +117,21 @@
     ];
   };
 
-
   # Network manager tray icon
-  services.network-manager-applet.enable = true;
+  # services.network-manager-applet.enable = true;
   # Bluetooth
-  services.blueman-applet.enable = true;
+  # services.blueman-applet.enable = true;
   # Battery
-  services.cbatticon  = {
-    enable = true;
-    criticalLevelPercent = 10;
-    commandCriticalLevel = ''notify-send "battery critical!"'';
-    lowLevelPercent = 30;
-    iconType = "standard";
-  };
-
+  # services.cbatticon  = {
+  #   enable = true;
+  #   criticalLevelPercent = 10;
+  #   commandCriticalLevel = ''notify-send "battery critical!"'';
+  #   lowLevelPercent = 30;
+  #   iconType = "standard";
+  # };
 
   # Auto mount usb
-  services.udiskie.enable = true;
+  # services.udiskie.enable = true;
   # Auto hide cursor
   services.unclutter.enable = true; # Auto hide cursor
 
