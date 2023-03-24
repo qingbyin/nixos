@@ -9,6 +9,7 @@ sh <(curl -L https://nixos.org/nix/install)
 2. Enable `flakes`
 
 ```bash
+mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
 

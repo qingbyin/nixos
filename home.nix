@@ -55,6 +55,12 @@
     rclone
     flameshot         # Screenshot
     goldendict
+    v2raya
+    uget # download manager
+
+    # lazy
+    lazydocker
+    lazygit
 
     # File Management
     gnome.file-roller # Archive Manager GUI
@@ -114,8 +120,23 @@
     package = pkgs.google-chrome; 
     extensions = [
       "padekgcemlokbadohgkifijomclgjgif" # SwitchyOmega
+      "dndlcbaomdoggooaficldplkcmkfpgff" # New Tab, New Window
+      "dhdgffkkebhmkfjojejmpbldmpobfkfo" # Tampemonkey
+      "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+      "jfedfbgedapdagkghmgibemcoggfppbb" # 猫抓
+      "kkkjlfejijcjgjllecmnejhogpbcigdc" # Org Capture
+      "fkeaekngjflipcockcnpobkpbbfbhmdn" # Copy as Markdown
+      "gmmnidkpkgiohfdoenhpghbilmeeagjj" # Sci-Hub X Now!
     ];
   };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs; [
+      vscode-extensions.bbenoist.nix
+    ];
+  };
+
 
   # Network manager tray icon
   # services.network-manager-applet.enable = true;
