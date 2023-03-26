@@ -20,7 +20,7 @@ break_length = 5
 
 [[block]]
 block = "custom"
-command = "echo '\uf6ad' $MOTTO"
+command = "echo '\uf6ad' Stay Hungry Stay Foolish"
 interval = 3600
 
 [[block]]
