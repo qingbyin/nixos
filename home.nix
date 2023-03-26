@@ -28,6 +28,7 @@ in
     ./modules/common/zsh.nix
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
+    ./modules/chrome/chrome.nix {inherit user;}
   ];
 
   # Install packages with plugins and configs
@@ -130,28 +131,7 @@ in
 
   programs.gpg.enable = true;
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave; 
-    extensions = [
-      # SwitchyOmega
-      { id = "padekgcemlokbadohgkifijomclgjgif"; }
-        # New Tab, New Window
-      { id = "dndlcbaomdoggooaficldplkcmkfpgff"; }
-      # Tampemonkey
-      { id = "dhdgffkkebhmkfjojejmpbldmpobfkfo"; }
-        # Vimium
-      { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; }
-      # 猫抓
-      { id = "jfedfbgedapdagkghmgibemcoggfppbb"; }
-      # Org Capture
-      { id = "kkkjlfejijcjgjllecmnejhogpbcigdc"; }
-      # Copy as Markdown
-      { id = "fkeaekngjflipcockcnpobkpbbfbhmdn"; }
-      # Sci-Hub X Now!
-      { id = "gmmnidkpkgiohfdoenhpghbilmeeagjj"; }
-    ];
-  };
+
 
   programs.vscode = {
     enable = true;
