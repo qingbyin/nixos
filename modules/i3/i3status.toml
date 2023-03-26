@@ -14,8 +14,6 @@ name = "awesome6"
 
 [[block]]
 block = "pomodoro"
-task_len = 30
-break_len = 5
 notify_cmd = "$icon notify-send '{msg}'"
 message = "Take a break!"
 break_message = "Back to work!"
