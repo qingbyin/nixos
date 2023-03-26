@@ -4,6 +4,20 @@
 
 Use `make` with `Makefile`.
 
+1. Install `make`
+
+```bash
+sudo apt install make
+```
+
+2. Run `make` with targets
+
+```bash
+git clone https://github.com/qingbyin/nixos.git ~/.nix 
+cd ~/.nix
+make install
+```
+
 ## Manual Installation
 
 1. Install `nix`
@@ -23,7 +37,7 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
 ```bash
 nix-shell -p git
-git clone https://github.com/qyin/flakes.git ~/.nix 
+git clone https://github.com/qingbyin/nixos.git ~/.nix 
 cd ~/.nix
 ```
 

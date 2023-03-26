@@ -1,12 +1,13 @@
 
+.ONSHELL:
 install:
 	sudo apt install git curl
-	sh <(curl -L https://nixos.org/nix/install)
+	curl -L https://nixos.org/nix/install | sh -s
+	. ~/.nix-profile/etc/profile.d/nix.sh
 	mkdir -p ~/.config/nix
 	echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-	git clone https://github.com/qyin/flakes.git ~/.nix 
-	nix run --impure ~/.nix/#homeConfigurations.qyin.activationPackage
-	source ~/.nix/result/activate
+	git checkout ubuntu
+	nix run --impure .#homeConfigurations.qyin.activationPackage
 
 build:
 	home-manager --impure switch --flake .#qyin
