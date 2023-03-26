@@ -4,7 +4,6 @@
 
 let
   # ...
-  nixgl = import <nixgl> {} ;
   nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
     mkdir $out
     ln -s ${pkg}/* $out
@@ -12,7 +11,7 @@ let
     mkdir $out/bin
     for bin in ${pkg}/bin/*; do
      wrapped_bin=$out/bin/$(basename $bin)
-     echo "exec ${lib.getExe nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
+     echo "exec ${lib.getExe pkgs.nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
      chmod +x $wrapped_bin
     done
   '';
@@ -58,7 +57,6 @@ in
     gnupg
 
     # Terminal
-    (nixGLWrap kitty)
     btop              # Resource Manager
     nitch             # Minimal fetch (faster than screenfetch)
     ranger            # File Manager
@@ -110,6 +108,7 @@ in
   # Terminal
   programs.kitty = {
     enable = true;
+    package = (nixGLWrap pkgs.kitty);
     font.name = "FiraCode Nerd Font";
     font.size = 12;
     theme = "Oceanic Material";
