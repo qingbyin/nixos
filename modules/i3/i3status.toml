@@ -13,9 +13,11 @@ name = "awesome6"
 # show_marks = "visible"
 
 [[block]]
-block = "custom"
-command = "i3-gnome-pomodoro status"
-interval = 5
+block = "pomodoro"
+length = 30
+break_length = 5
+notify_cmd = "notify-send '{msg}'"
+blocking_cmd = true
 
 [[block]]
 block = "custom"

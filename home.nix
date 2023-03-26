@@ -82,7 +82,6 @@ in
     uget # download manager
     peek # gif screen recorder
     anki-bin
-    gnome.pomodoro
 
     # lazy
     lazydocker
