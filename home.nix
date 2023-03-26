@@ -78,7 +78,6 @@ in
     rclone
     flameshot         # Screenshot
     goldendict
-    v2raya
     uget # download manager
     peek # gif screen recorder
     anki-bin
