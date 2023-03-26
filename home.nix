@@ -41,6 +41,9 @@
     nitch             # Minimal fetch (faster than screenfetch)
     ranger            # File Manager
     tldr              # Helper (simplified man pages)
+    fd
+    ripgrep
+    ripgrep-all
 
     # Video/Audio
     mpv               # Media Player
@@ -57,6 +60,9 @@
     goldendict
     v2raya
     uget # download manager
+    peek # gif screen recorder
+    anki-bin
+    gnome.pomodoro
 
     # lazy
     lazydocker
@@ -67,9 +73,10 @@
     okular            # PDF Viewer
     pcmanfm           # File Manager GUI
     rsync             # Syncer - $ rsync -r dir1/ dir2/
-    unzip             # Zip Files
-    unrar             # Rar Files
-    zip               # Zip
+    unzip
+    unrar
+    zip
+    p7zip
   ];
 
   # Configure keymap in X11
@@ -96,17 +103,6 @@
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; }
-      ];
-    };
-  };
-
   programs.git = {
     enable = true;
     userName  = "Qing Yin";
@@ -117,7 +113,7 @@
 
   programs.chromium = {
     enable = true;
-    package = pkgs.google-chrome; 
+    # package = pkgs.google-chrome; 
     extensions = [
       "padekgcemlokbadohgkifijomclgjgif" # SwitchyOmega
       "dndlcbaomdoggooaficldplkcmkfpgff" # New Tab, New Window
