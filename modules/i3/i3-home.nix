@@ -2,6 +2,13 @@
 
 { config, pkgs, ... }:
 
+let
+  blurlock = writeShellApplication {
+    name = "blurlock";
+    runtimeInputs = [ imagemagick ];
+    text = builtins.readFile ./blurlock.sh;
+  };
+in
 {
 
   xsession = {
@@ -17,7 +24,7 @@
 
   home.packages = with pkgs; [
       i3status-rust
-      i3lock-color
+      blurlock
       xautolock
       rofi
       lxappearance # Modify icon and themes
