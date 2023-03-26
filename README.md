@@ -22,16 +22,17 @@ cd ~/.nix
 ```
 
 4. Install Home Manager and apply the configuration by
+   (`--impure` is required for NixGL)
 
 ```bash
-nix run .#homeConfigurations.<host>.activationPackage
+nix run --impure .#homeConfigurations.<host>.activationPackage
 ./result/activate
 ```
 
 5. Once home-manager is installed, update (Rebuild) the configuration
 
 ```bash
-home-manager switch --flake .#qyin
+home-manager --impure switch --flake .#qyin
 ```
 
 ## Refs
