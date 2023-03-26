@@ -27,7 +27,7 @@
     '';
   };
 
-  home.package = with pkgs; [
+  home.packages = with pkgs; [
     zsh-z
     zsh-powerlevel10k
     zsh-autopair
