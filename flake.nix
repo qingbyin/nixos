@@ -17,6 +17,7 @@
     {
       nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       nur.url = "github:nix-community/NUR";
+      nixgl.url = "github:guibou/nixGL"; # OpenGL wrapper
 
       impermanence.url = "github:nix-community/impermanence";
       nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
@@ -35,6 +36,7 @@
         inherit system;
         config.allowUnfree = true; # allow proprietary software
         config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
+        overlays = [ nixgl.overlay ];
       };
     in 
     {

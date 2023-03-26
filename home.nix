@@ -31,7 +31,9 @@
     usbutils # lsusb
     pciutils # lspci
     xdg-utils
+    gnupg
     # OpenGL
+    nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware
     glxinfo
     vulkan-tools
     glmark2
