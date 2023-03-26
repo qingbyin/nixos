@@ -1,6 +1,23 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ pkgs, user, ... }: {
+{ pkgs, user, ... }:
+
+let
+  # ...
+  nixgl = import <nixgl> {} ;
+  nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
+    mkdir $out
+    ln -s ${pkg}/* $out
+    rm $out/bin
+    mkdir $out/bin
+    for bin in ${pkg}/bin/*; do
+     wrapped_bin=$out/bin/$(basename $bin)
+     echo "exec ${lib.getExe nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
+     chmod +x $wrapped_bin
+    done
+  '';
+in
+{
 
   home = {
     username = "${user}";
@@ -9,6 +26,7 @@
 
   imports = [
     # ./modules/emacs/emacs.nix
+    ./modules/common/zsh.nix
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
   ];
@@ -16,6 +34,12 @@
   # Install packages with plugins and configs
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
+    # OpenGL
+    nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware
+    glxinfo
+    vulkan-tools
+    glmark2
+
     # Fonts
     source-han-sans
     source-han-serif
@@ -32,13 +56,9 @@
     pciutils # lspci
     xdg-utils
     gnupg
-    # OpenGL
-    nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware
-    glxinfo
-    vulkan-tools
-    glmark2
 
     # Terminal
+    (nixGLWrap kitty)
     btop              # Resource Manager
     nitch             # Minimal fetch (faster than screenfetch)
     ranger            # File Manager

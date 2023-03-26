@@ -17,7 +17,7 @@
     {
       nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       nur.url = "github:nix-community/NUR";
-      nixgl.url = "github:guibou/nixGL"; # OpenGL wrapper
+      nixgl.url = "git+ https://ghproxy.com/https://github.com/guibou/nixGL"; # OpenGL wrapper
 
       impermanence.url = "github:nix-community/impermanence";
       nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
