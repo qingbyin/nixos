@@ -1,5 +1,11 @@
 # Nix Home Manager + Ubuntu
 
+## Auto Installation
+
+Use `make` with `Makefile`.
+
+## Manual Installation
+
 1. Install `nix`
 
 ```bash

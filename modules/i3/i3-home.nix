@@ -21,7 +21,7 @@
       xautolock
       rofi
       lxappearance # Modify icon and themes
-      nitrogen # wallpaper manager
+      feh # wallpaper setting
   ];
 
   home.file.".background-image".source = ../common/watercolor-grunge.jpg;

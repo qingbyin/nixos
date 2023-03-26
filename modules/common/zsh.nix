@@ -21,8 +21,8 @@
           git config --global --unset http.proxy
       }
       # Environment settings for this specific machine
-      if [[ -r "${HOME}/.userenv.sh" ]]; then
-          source "${HOME}/.userenv.sh"
+      if [[ -r "$HOME/.userenv.sh" ]]; then
+          source "$HOME/.userenv.sh"
       fi
     '';
   };
