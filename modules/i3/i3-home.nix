@@ -3,9 +3,9 @@
 { config, pkgs, ... }:
 
 let
-  blurlock = writeShellApplication {
+  blurlock = pkgs.writeShellApplication {
     name = "blurlock";
-    runtimeInputs = [ imagemagick ];
+    runtimeInputs = [ pkgs.imagemagick ];
     text = builtins.readFile ./blurlock.sh;
   };
 in
@@ -51,33 +51,35 @@ in
   # Notification daemon
   services.dunst = {
     enable = true;
-    global = {
-      width = 300;
-      height = 300;
-      offset = "30x50";
-      origin = "top-right";
-      transparency = 15;
-      frame_width = 1;
-      frame_color = "#788388";
-      font = "Droid Sans 9";
-    };
+    settings = {
+      global = {
+        width = 300;
+        height = 300;
+        offset = "30x50";
+        origin = "top-right";
+        transparency = 15;
+        frame_width = 1;
+        frame_color = "#788388";
+        font = "Droid Sans 9";
+      };
 
-    urgency_low = {
-      background = "#263238";
-      foreground = "#556064";
-      timeout = 10;
-    };
+      urgency_low = {
+        background = "#263238";
+        foreground = "#556064";
+        timeout = 10;
+      };
 
-    urgency_normal = {
-      background = "#263238";
-      foreground = "#F9FAF9";
-      timeout = 10;
-    };
+      urgency_normal = {
+        background = "#263238";
+        foreground = "#F9FAF9";
+        timeout = 10;
+      };
 
-    urgency_critical = {
-      background = "#D62929";
-      foreground = "#F9FAF9";
-      timeout = 0;
+      urgency_critical = {
+        background = "#D62929";
+        foreground = "#F9FAF9";
+        timeout = 0;
+      };
     };
   };
 
