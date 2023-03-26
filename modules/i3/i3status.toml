@@ -14,9 +14,12 @@ name = "awesome6"
 
 [[block]]
 block = "pomodoro"
-notifier = "notifysend"
-length = 30
-break_length = 5
+task_len = 30
+break_len = 5
+notify_cmd = "$icon notify-send '{msg}'"
+message = "Take a break!"
+break_message = "Back to work!"
+format = " $icon $pomodoro"
 
 [[block]]
 block = "custom"
@@ -68,3 +71,8 @@ block = "notify"
 block = "time"
 interval = 5
 format = "%a %m-%d %R"
+
+[[block]]
+block = "battery"
+interval = 10
+format = " $icon $percentage"

@@ -5,7 +5,7 @@
 let
   blurlock = pkgs.writeShellApplication {
     name = "blurlock";
-    runtimeInputs = [ pkgs.imagemagick ];
+    runtimeInputs = [ pkgs.imagemagick pkgs.i3lock];
     text = builtins.readFile ./blurlock.sh;
   };
 in
