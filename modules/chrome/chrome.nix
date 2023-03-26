@@ -7,7 +7,8 @@
     extensions = [
       # SwitchyOmega
       { id = "padekgcemlokbadohgkifijomclgjgif";
-        crxPath = "/home/${user}/.config/chrome/extensions/switchy_omega.crx";
+        crxPath = "/home/qyin/.config/chrome/extensions/switchy_omega.crx";
+        version = "2.5.21";
       }
         # New Tab, New Window
       { id = "dndlcbaomdoggooaficldplkcmkfpgff"; }

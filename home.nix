@@ -28,7 +28,7 @@ in
     ./modules/common/zsh.nix
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
-    ./modules/chrome/chrome.nix {inherit user;}
+    ./modules/chrome/chrome.nix
   ];
 
   # Install packages with plugins and configs
