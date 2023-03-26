@@ -14,14 +14,13 @@ name = "awesome6"
 
 [[block]]
 block = "pomodoro"
+notifier = "notifysend"
 length = 30
 break_length = 5
-notify_cmd = "notify-send '{msg}'"
-blocking_cmd = true
 
 [[block]]
 block = "custom"
-command = "echo '\uf6ad' $(shuf -n 1 ~/dotfiles/i3/motto.md)"
+command = "echo '\uf6ad' $MOTTO"
 interval = 3600
 
 [[block]]

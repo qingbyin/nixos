@@ -24,7 +24,10 @@
       feh # wallpaper setting
   ];
 
-  home.file.".background-image".source = ../common/watercolor-grunge.jpg;
+  xdg.configFile."wallpapers" = {
+    source = ../common/wallpapers;
+    recursive = true;
+  };
   xdg.configFile."i3status-rust/config.toml".source = ./i3status.toml;
   # rofi config
   xdg.configFile."rofi/android_notification.rasi".source = ./rofi-theme.rasi;
