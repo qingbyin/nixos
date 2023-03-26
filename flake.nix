@@ -36,7 +36,7 @@
         inherit system;
         config.allowUnfree = true; # allow proprietary software
         config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
-        overlays = [ nixgl.overlay ];
+        overlays = [ inputs.nixgl.overlay ];
       };
     in 
     {
