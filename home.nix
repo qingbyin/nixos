@@ -132,7 +132,7 @@ in
 
   programs.chromium = {
     enable = true;
-    # package = pkgs.google-chrome; 
+    package = pkgs.brave; 
     extensions = [
       "padekgcemlokbadohgkifijomclgjgif" # SwitchyOmega
       "dndlcbaomdoggooaficldplkcmkfpgff" # New Tab, New Window
