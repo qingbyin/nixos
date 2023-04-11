@@ -24,12 +24,26 @@
       if [[ -r "$HOME/.userenv.sh" ]]; then
           source "$HOME/.userenv.sh"
       fi
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
+    plugins = with pkgs; [
+      {
+        file = "powerlevel10k.zsh-theme";
+        name = "powerlevel10k";
+        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
+      }
+      {
+        file = "autopair.zsh";
+        name = "autopair";
+        src = "${zsh-autopair}/share/zsh/zsh-autopair";
+      }
+      {
+        file = "zsh-z.zsh";
+        name = "zsh-z";
+        src = "${zsh-z}/share/zsh-z";
+      }
+    ];
   };
 
-  home.packages = with pkgs; [
-    zsh-z
-    zsh-powerlevel10k
-    zsh-autopair
-  ];
+  home.file.".p10k.zsh".source =./.p10k.zsh;
 }
