@@ -12,6 +12,9 @@ install:
 build:
 	home-manager --impure switch --flake .#qyin
 
+i3-deps:
+	sudo apt install i3lock
+
 docker:
 	sudo apt-get remove docker docker-engine docker.io containerd runc
 	sudo apt-get update
