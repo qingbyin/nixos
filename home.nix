@@ -26,6 +26,7 @@ in
   imports = [
     # ./modules/emacs/emacs.nix
     ./modules/common/zsh.nix
+    ./modules/common/vscode.nix
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
     ./modules/chrome/chrome.nix
@@ -131,18 +132,8 @@ in
 
   programs.gpg.enable = true;
 
-
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs; [
-      vscode-extensions.bbenoist.nix
-    ];
-  };
-
-
   # Network manager tray icon
-  # services.network-manager-applet.enable = true;
+  services.network-manager-applet.enable = true;
   # Bluetooth
   # services.blueman-applet.enable = true;
   # Battery

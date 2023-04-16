@@ -6,7 +6,7 @@
     substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://nix-community.cachix.org"
-      "https://cache.nixos.org/"
+      # "https://cache.nixos.org/"
     ];
     trusted-substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"
