@@ -12,6 +12,9 @@ install:
 build:
 	home-manager --impure switch --flake .#qyin
 
+kitty:
+	sudo apt install kitty
+
 i3-deps:
 	sudo apt install i3lock
 

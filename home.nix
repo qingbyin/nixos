@@ -2,20 +2,6 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 { pkgs, user, lib, ... }:
 
-# let
-#   # ...
-#   nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
-#     mkdir $out
-#     ln -s ${pkg}/* $out
-#     rm $out/bin
-#     mkdir $out/bin
-#     for bin in ${pkg}/bin/*; do
-#      wrapped_bin=$out/bin/$(basename $bin)
-#      echo "exec ${lib.getExe pkgs.nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
-#      chmod +x $wrapped_bin
-#     done
-#   '';
-# in
 {
 
   home = {
@@ -26,7 +12,8 @@
   imports = [
     # ./modules/emacs/emacs.nix
     ./modules/common/zsh.nix
-    ./modules/common/vscode.nix
+    ./modules/kitty/kitty.nix
+    ./modules/vscode/vscode.nix
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
     ./modules/chrome/chrome.nix
@@ -103,26 +90,6 @@
   services.xcape = {
     enable = true;
     mapExpression = { Caps_Lock = "Control_L";};
-  };
-
-  # Terminal
-  programs.kitty = {
-    enable = true;
-    # package = (nixGLWrap pkgs.kitty);
-    package = {};
-    font.name = "FiraCode Nerd Font";
-    font.size = 12;
-    theme = "Oceanic Material";
-    settings = {
-      italic_font = "auto";
-      bold_italic_font = "auto";
-      mouse_hide_wait = 2;
-      confirm_os_window_close = 0;
-      shell = "zsh";
-    };
-    keybindings = {
-      "ctrl+shift+s" = "set_tab_title";
-    };
   };
 
   programs.git = {
