@@ -2,20 +2,20 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 { pkgs, user, lib, ... }:
 
-let
-  # ...
-  nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
-    mkdir $out
-    ln -s ${pkg}/* $out
-    rm $out/bin
-    mkdir $out/bin
-    for bin in ${pkg}/bin/*; do
-     wrapped_bin=$out/bin/$(basename $bin)
-     echo "exec ${lib.getExe pkgs.nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
-     chmod +x $wrapped_bin
-    done
-  '';
-in
+# let
+#   # ...
+#   nixGLWrap = pkg: pkgs.runCommand "${pkg.name}-nixgl-wrapper" {} ''
+#     mkdir $out
+#     ln -s ${pkg}/* $out
+#     rm $out/bin
+#     mkdir $out/bin
+#     for bin in ${pkg}/bin/*; do
+#      wrapped_bin=$out/bin/$(basename $bin)
+#      echo "exec ${lib.getExe pkgs.nixgl.auto.nixGLDefault} $bin \$@" > $wrapped_bin
+#      chmod +x $wrapped_bin
+#     done
+#   '';
+# in
 {
 
   home = {
@@ -36,10 +36,10 @@ in
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     # OpenGL
-    nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware
-    glxinfo
-    vulkan-tools
-    glmark2
+    # nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware, e.g. nvidia or amd
+    # glxinfo
+    # vulkan-tools
+    # glmark2
 
     # Fonts
     source-han-sans
@@ -108,7 +108,8 @@ in
   # Terminal
   programs.kitty = {
     enable = true;
-    package = (nixGLWrap pkgs.kitty);
+    # package = (nixGLWrap pkgs.kitty);
+    package = {};
     font.name = "FiraCode Nerd Font";
     font.size = 12;
     theme = "Oceanic Material";
