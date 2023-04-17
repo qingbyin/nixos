@@ -101,7 +101,7 @@
   programs.gpg.enable = true;
 
   # Network manager tray icon
-  services.network-manager-applet.enable = true;
+  # services.network-manager-applet.enable = true;
   # Bluetooth
   # services.blueman-applet.enable = true;
   # Battery
