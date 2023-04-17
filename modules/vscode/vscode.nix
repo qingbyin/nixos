@@ -16,14 +16,14 @@ in
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       shd101wyy.markdown-preview-enhanced
-      vscodevim.vim
+      asvetliakov.vscode-neovim
 
       # C++
       # C/C++ completion, navigation, and insights (better than MS official C/C++ extension)
       llvm-vs-code-extensions.vscode-clangd
       twxs.cmake # lanuage support (syntax highlight, autocompletion...)
       ms-vscode.cmake-tools
-      c-mantic
+      #c-mantic
 
       # Python
       ms-python.python
@@ -32,20 +32,39 @@ in
     ];
     userSettings = {
       "files.autoSave" = "off";
+      "editor.fontFamily" = "FiraCode Nerd Font Mono, WenQuanYi Micro Hei";
+      "editor.lineNumbers" = "relative";
+      "editor.renderWhitespace" = "boundary";
+      "editor.acceptSuggestionOnEnter" = "false";
+
       "[nix]"."editor.tabSize" = 2;
-      "[vim]"."autoSwitchInputMethod.enable" = true;
-      "[vim]"."autoSwitchInputMethod.defaultIM" = 1;
-      "[vim]"."autoSwitchInputMethod.obtainIMCmd" = "~/.nix-profile/fcitx5-remote";
-      "[vim]"."autoSwitchInputMethod.switchIMCmd" = "~/.nix-profile/fcitx5-remote -t {im}";
+
+      "vscode-neovim.neovimExecutablePaths.linux" = "${pkgs.neovim}/bin/nvim";
+      "vscode-neovim.neovimInitVimPaths.linux" = "~/.config/vscode.vim";
+
+      "clangd.onConfigChanged" = "restart";
     };
+    keybindings = [
+      {
+        "key" = "ctrl+[";
+        "command" = "vscode-neovim.escape";
+        "when" = "editorTextFocus && neovim.init";
+      }
+      {
+        "command" = "-vscode-neovim.send";
+        "key" = "ctrl+a";
+      }
+    ];
   };
 
   # Deps
   home.packages = with pkgs; [
+    neovim
     gcc
     gdb
     cmake
     clang-tools # clangd
   ];
 
+  xdg.configFile."vscode.vim".source = ./vscode.vim;
 }
