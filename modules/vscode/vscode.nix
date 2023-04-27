@@ -26,9 +26,9 @@ in
       #c-mantic
 
       # Python
-      ms-python.python
-      ms-python.vscode-pylance
-      ms-toolsai.jupyter
+      # ms-python.python
+      # ms-python.vscode-pylance
+      # ms-toolsai.jupyter
     ];
     userSettings = {
       "files.autoSave" = "off";
@@ -60,10 +60,10 @@ in
   # Deps
   home.packages = with pkgs; [
     neovim
-    gcc
-    gdb
-    cmake
-    clang-tools # clangd
+    # gcc
+    # gdb
+    # cmake
+    # clang-tools # clangd
   ];
 
   xdg.configFile."vscode.vim".source = ./vscode.vim;

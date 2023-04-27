@@ -71,3 +71,6 @@ block = "sound"
 button = "left"
 cmd = "pavucontrol"
 
+[[block]]
+block = "bluetooth"
+
