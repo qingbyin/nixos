@@ -44,6 +44,7 @@
     pciutils # lspci
     xdg-utils
     gnupg
+    xcape
 
     # Terminal
     btop              # Resource Manager
@@ -103,7 +104,7 @@
   # Network manager tray icon
   # services.network-manager-applet.enable = true;
   # Bluetooth
-  # services.blueman-applet.enable = true;
+  services.blueman-applet.enable = true;
   # Battery
   # services.cbatticon  = {
   #   enable = true;
