@@ -17,6 +17,7 @@ kitty:
 
 i3-deps:
 	sudo apt install i3lock
+	sudo apt install blueman
 
 docker:
 	sudo apt-get remove docker docker-engine docker.io containerd runc

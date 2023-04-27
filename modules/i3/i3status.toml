@@ -70,7 +70,3 @@ block = "sound"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
-
-[[block]]
-block = "bluetooth"
-

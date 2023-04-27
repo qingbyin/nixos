@@ -17,7 +17,7 @@
 
   home.packages = with pkgs; [
       i3status-rust
-      xautolock
+      xautolock # Tool for auto lock (run i3lock) after a given time
       rofi
       lxappearance # Modify icon and themes
       feh # wallpaper setting
