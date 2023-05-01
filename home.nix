@@ -67,7 +67,7 @@
     onlyoffice-bin    # Office
     rclone
     flameshot         # Screenshot
-    goldendict
+    #goldendict
     uget # download manager
     peek # gif screen recorder
     anki-bin
@@ -104,18 +104,18 @@
   # Network manager tray icon
   # services.network-manager-applet.enable = true;
   # Bluetooth
-  services.blueman-applet.enable = true;
+  # services.blueman-applet.enable = true;
   # Battery
-  # services.cbatticon  = {
-  #   enable = true;
-  #   criticalLevelPercent = 10;
-  #   commandCriticalLevel = ''notify-send "battery critical!"'';
-  #   lowLevelPercent = 30;
-  #   iconType = "standard";
-  # };
+  services.cbatticon  = {
+    enable = true;
+    criticalLevelPercent = 10;
+    commandCriticalLevel = ''notify-send "battery critical!"'';
+    lowLevelPercent = 30;
+    iconType = "standard";
+  };
 
   # Auto mount usb
-  # services.udiskie.enable = true;
+  services.udiskie.enable = true;
   # Auto hide cursor
   services.unclutter.enable = true; # Auto hide cursor
 

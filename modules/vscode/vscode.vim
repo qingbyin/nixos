@@ -42,16 +42,15 @@ xnoremap <silent> <C-h> :call VSCodeNotify('workbench.action.navigateLeft')<CR>
 nnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 xnoremap <silent> <C-l> :call VSCodeNotify('workbench.action.navigateRight')<CR>
 
-# Code Navigation (builin + custom)
-# Show hover: gh/ K 
-# Open definition aside: <C-w>gd 
-# Show Definition: gd / c-] 
-# Peek Definition: gD 
-# Show Declaration: gf
-# Peek Declaration: gF
-# Peek Focus: Tab
-# Go to symbol: go
-
+" Code Navigation (builin + custom)
+" Show hover: gh/ K
+" Open definition aside: <C-w>gd
+" Show Definition: gd / c-]
+" Peek Definition: gD
+" Show Declaration: gf
+" Peek Declaration: gF
+" Peek Focus: Tab
+" Go to symbol: go
 
 xnoremap <leader>x <Cmd>call VSCodeNotifyVisual('workbench.action.showCommands', 1)<CR>
 

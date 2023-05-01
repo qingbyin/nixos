@@ -8,6 +8,7 @@
     enableSyntaxHighlighting = true;
     initExtra = ''
       export PATH="$HOME/.local/bin:$PATH"
+      export LOCALIP=127.0.0.1
       set_sys_proxy() {
           export all_proxy=socks5://$LOCALIP:9000
           export https_proxy=socks5://$LOCALIP:9000

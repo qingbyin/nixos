@@ -16,7 +16,12 @@ in
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
       shd101wyy.markdown-preview-enhanced
+      pkief.material-icon-theme
+      zhuangtongfa.material-theme # one dark pro
+      
+      # vim
       asvetliakov.vscode-neovim
+      xadillax.viml
 
       # C++
       # C/C++ completion, navigation, and insights (better than MS official C/C++ extension)
@@ -35,7 +40,11 @@ in
       "editor.fontFamily" = "FiraCode Nerd Font Mono, WenQuanYi Micro Hei";
       "editor.lineNumbers" = "relative";
       "editor.renderWhitespace" = "boundary";
-      "editor.acceptSuggestionOnEnter" = "false";
+      "editor.acceptSuggestionOnEnter" = "off";
+      "workbench.activityBar.visible" = false;
+      "window.menuBarVisibility" = "toggle";
+      "workbench.colorTheme" = "One Dark Pro";
+      "workbench.iconTheme" = "material-icon-theme";
 
       "[nix]"."editor.tabSize" = 2;
 
