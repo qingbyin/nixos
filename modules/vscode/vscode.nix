@@ -31,8 +31,8 @@ in
       #c-mantic
 
       # Python
-      # ms-python.python
-      # ms-python.vscode-pylance
+      ms-python.python
+      ms-python.vscode-pylance
       # ms-toolsai.jupyter
     ];
     userSettings = {
@@ -62,6 +62,10 @@ in
       {
         "command" = "-vscode-neovim.send";
         "key" = "ctrl+a";
+      }
+      { # Fix navigation jump in the explorer
+        "key" = "ctrl+l";
+        "command" = "workbench.action.navigateRight";
       }
     ];
   };
