@@ -1,0 +1,15 @@
+snippet mod "module config" b
+function! modules#${1}#plugins() abort
+    let plugins = []
+    call add(plugins, ['${2}'])
+    return plugins
+endfunction
+
+function! modules#${1}#config() abort
+	
+	call s:mappings()
+endfunction
+
+function! s:mappings() abort
+endfunction
+endsnippet

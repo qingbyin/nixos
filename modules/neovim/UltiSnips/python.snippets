@@ -1,0 +1,58 @@
+global !p
+# add global functions
+endglobal
+
+# =============================================================================
+
+snippet doc "Module description" b
+"""$1
+
+$2
+"""
+endsnippet
+
+snippet deff "function or class method"
+def ${1:fname}(`!p snip.rv = "self, " if snip.indent else ""`$2):
+	$0
+endsnippet
+
+snippet ini "class init function" b
+def __init__(self, $1):
+	$2
+endsnippet
+
+snippet for "for loop" b
+for ${1:item} in ${2:iterable}:
+	${3:${VISUAL:pass}}
+endsnippet
+
+snippet ifmain "ifmain" b
+if __name__ == '__main__':
+	$1
+endsnippet
+
+snippet np "Import numpy" b
+import numpy as np
+endsnippet
+
+snippet plt "Import matplotlib" b
+import matplotlib.pyplot as plt
+endsnippet
+
+snippet tf "Import TensorFlow" b
+import tensorflow as tf
+endsnippet
+
+snippet cell "IPython cell" b
+# %%
+endsnippet
+
+snippet data "toml data" b
+from pathlib import Path
+
+DATA_DIR = Path(__file__).parent / 'data'
+endsnippet
+
+snippet f" "format" biw
+f"$1{$2}"$0
+endsnippet

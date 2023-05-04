@@ -1,0 +1,10 @@
+snippet src "Add target sources" b
+# =======================================
+# Add source files to the target
+# =======================================
+target_sources(${1}
+    PRIVATE
+        ${2}
+    )
+${3}
+endsnippet

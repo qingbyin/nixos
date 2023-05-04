@@ -1,0 +1,22 @@
+{
+    "Code block": {
+        "prefix": "```",
+        "body": [
+            "```$1",
+            "$2",
+            "```"
+        ]
+    },
+    //
+    "File Header": {
+        "prefix": "header",
+        "body": [
+            "---",
+            "title: ${1:$TM_FILENAME_BASE}",
+            "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags:",
+            "\t- $2",
+            "---"
+        ]
+    }
+}

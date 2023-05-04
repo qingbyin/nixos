@@ -1,0 +1,26 @@
+priority -50
+
+snippet fn "fn name(?) -> ? {}"
+fn ${1:function_name}($2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet pfn "pub fn name(?) -> ? {}"
+pub fn ${1:function_name}($2)${3/..*/ -> /}$3 {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet struct "Struct" b
+struct ${1:Name} {
+	$2
+}
+endsnippet
+
+
+snippet impl "Struct/Trait implementation" b
+impl$4 ${1:Type/Trait}${2: for ${3:Type}}${4:<${5:T}>} {
+	${0}
+}
+endsnippet
