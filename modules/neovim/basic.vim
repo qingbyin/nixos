@@ -7,7 +7,7 @@ set shiftwidth=4
 set encoding=utf8
 
 " Vertical ruler
-set colorcolumn=80,100,120
+"  set colorcolumn=80,100,120
 " Hybrid line numbers
 set number relativenumber
 

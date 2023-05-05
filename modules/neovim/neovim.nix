@@ -33,6 +33,9 @@
         config = "nnoremap <silent> <Leader>q :Bdelete<CR>";
       }
       {
+        plugin = which-key-nvim;
+      }
+      {
         plugin = material-vim;
         config = ''
           let g:material_theme_style = 'palenight'

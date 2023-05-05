@@ -2,21 +2,14 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.keymap.set('n', '<leader>e', "<cmd>NvimTreeToggle<cr>", {silent = true})
-
+vim.keymap.set('n', 'h',  api.node.navigate.parent_close,        opts('Close Directory'))
+vim.keymap.set('n', 'l',  api.node.open.edit,                    opts('Open'))
 -- empty setup using defaults
 -- require("nvim-tree").setup()
 
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
-  view = {
-    adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
-  },
   renderer = {
     group_empty = true,
   },
