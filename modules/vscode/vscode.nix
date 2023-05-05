@@ -70,14 +70,5 @@ in
     ];
   };
 
-  # Deps
-  home.packages = with pkgs; [
-    neovim
-    # gcc
-    # gdb
-    # cmake
-    # clang-tools # clangd
-  ];
-
   xdg.configFile."vscode.vim".source = ./vscode.vim;
 }

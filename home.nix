@@ -14,6 +14,7 @@
     ./modules/common/zsh.nix
     # ./modules/kitty/kitty.nix
     ./modules/vscode/vscode.nix
+    ./modules/neovim/neovim.nix
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
     ./modules/chrome/chrome.nix

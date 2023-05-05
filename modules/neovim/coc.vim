@@ -1,8 +1,6 @@
 "
-" Autocompletion and lsp support
-call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 " Add common extensions
-let g:coc_global_extensions = ['coc-lists', 'coc-snippets', 'coc-pairs']
+let g:coc_global_extensions = ['coc-lists', 'coc-snippets', 'coc-pairs', 'coc-json', 'coc-pyright']
 
 " Config coc
 " TextEdit might fail if hidden is not set.
@@ -44,7 +42,7 @@ nmap <silent> gr <Plug>(coc-references)
 " Show outline in tree view
 nnoremap go :CocOutline<CR>
 " Find symbol of current document.
-nnoremap <silent><nowait> <Leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <Leader>o :<C-u>CocList outline<cr>
 " Mouse hover
 nnoremap <silent> gh :call CocActionAsync('doHover')<CR>
 " Diagnostics (similar to VS Code problem windows)
@@ -121,3 +119,11 @@ endif
 
 " Do not use <Enter> key to trigger completion
 inoremap <expr> <CR> pumvisible() ? "\<C-E>\<CR>" : "\<CR>"
+
+
+" C++
+call add(g:coc_global_extensions, 'coc-clangd')
+call add(g:coc_global_extensions, 'coc-clang-format-style-options')
+call add(g:coc_global_extensions, 'coc-cmake')
+" C/C++ comment style
+autocmd FileType c,cpp,java,edp setlocal commentstring=//\ %s
