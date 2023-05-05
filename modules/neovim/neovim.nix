@@ -17,6 +17,12 @@
       vim-toml
       # nvim-autopairs # use coc-pairs
       nvim-web-devicons # explorer file icons
+      # lazygit
+      {
+        plugin = toggleterm-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/toggleterm.lua;
+      }
       {
         plugin = alpha-nvim; # Startup greeter
         type = "lua";
