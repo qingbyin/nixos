@@ -88,3 +88,5 @@ inoremap <c-j> <nop>
 
 " Set SignColumn background color (same as the lineNumber bg color)
 highlight! link SignColumn LineNr
+
+autocmd BufEnter *.launch set filetype=xml
