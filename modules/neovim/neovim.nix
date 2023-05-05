@@ -9,15 +9,19 @@
       # packer-nvim
       nvim-lspconfig # Quickstart configurations for the Nvim LSP client
       null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-      vim-startify
       vim-surround # Easy to add/delete/change pairs
       vim-repeat # Cooporated with surround.vim, so that ds, cs, yss can be repeated
       vim-commentary # Comment using <gcc>
       vim-smoothie # Smooth scroll
       vim-lastplace # Reopen files at the last edit position
-      vim-toml 
+      vim-toml
       # nvim-autopairs # use coc-pairs
       nvim-web-devicons # explorer file icons
+      {
+        plugin = alpha-nvim; # Startup greeter
+        type = "lua";
+        config = "require'alpha'.setup(require'alpha.themes.startify'.config)";
+      }
       {
         plugin = nvim-tree-lua;
         type = "lua";
