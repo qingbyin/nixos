@@ -40,7 +40,7 @@
       # Delete buffers (close files) without closing your windows 
       {
         plugin = vim-bbye;
-        config = "nnoremap <silent> <Leader>q :Bdelete<CR>";
+        config = "nnoremap <space>q <cmd>Bdelete<cr>";
       }
       {
         plugin = which-key-nvim;
@@ -92,7 +92,7 @@
           let g:indentLine_char_list = ['|', '¦', '┆', '┊']
           " Show whitespace/tab/break explicitly (Use symbols similar to Office Word)
           " set list listchars=tab:→\ ,trail:·,precedes:←,extends:→,space:·
-          set list listchars=trail:·
+          set list listchars=tab:→\ ,trail:·
         '';
         
       }

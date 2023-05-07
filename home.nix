@@ -46,6 +46,7 @@
     xdg-utils
     gnupg
     xcape
+    xclip
 
     # Terminal
     btop              # Resource Manager

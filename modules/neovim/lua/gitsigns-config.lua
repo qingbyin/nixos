@@ -4,10 +4,10 @@ vim.keymap.set('n', '<leader>gp', "<cmd>Gitsigns preview_hunk<cr>", {silent = tr
 vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns toggle_deleted<cr>", {silent = true})
 vim.keymap.set('n', '<leader>gu', "<cmd>Gitsigns undo_stage_hunk<cr>", {silent = true})
 -- Stage hunk
-vim.keymap.set('n', '<leader>gs', "<cmd>Gitsigns stage_hunk<cr>")
+vim.keymap.set('n', 'gs', "<cmd>Gitsigns stage_hunk<cr>")
 -- Jump to previous/next hunk
-vim.keymap.set('n', '<leader>gk', "<cmd>Gitsigns prev_hunk<cr>", {silent = true})
-vim.keymap.set('n', '<leader>gj', "<cmd>Gitsigns next_hunk<cr>", {silent = true})
+vim.keymap.set('n', 'gk', "<cmd>Gitsigns prev_hunk<cr>", {silent = true})
+vim.keymap.set('n', 'gj', "<cmd>Gitsigns next_hunk<cr>", {silent = true})
 
 require('gitsigns').setup {
   -- signs = {
