@@ -9,14 +9,43 @@
       # packer-nvim
       nvim-lspconfig # Quickstart configurations for the Nvim LSP client
       null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+      # Code completion
+      cmp-nvim-lsp # completion source for neovim builtin LSP client
+      cmp-buffer # completion source for buffer words
+      cmp-path # completion source for paths
+      cmp-cmdline # command line suggestions
+      cmp_luasnip # Luasnip completion source for nvim-cmp
+      luasnip # Snippet engine
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = builtins.readFile ./lua/cmp.lua;
+      }
+      #
       vim-surround # Easy to add/delete/change pairs
       vim-repeat # Cooporated with surround.vim, so that ds, cs, yss can be repeated
       vim-commentary # Comment using <gcc>
       vim-smoothie # Smooth scroll
       vim-lastplace # Reopen files at the last edit position
       vim-toml
-      # nvim-autopairs # use coc-pairs
+      nvim-autopairs
       nvim-web-devicons # explorer file icons
+      plenary-nvim
+      (nvim-treesitter.withPlugins (p: [ p.c p.norg p.cpp]))
+      {
+        plugin = neorg;
+        type = "lua";
+        config = ''
+            require('neorg').setup { load = {
+                    ["core.defaults"] = {},
+                    ["core.completion"] = {
+                    config = { engine = "nvim-cmp"},
+                    },
+                    ["core.concealer"] = {}
+                }
+            }
+        '';
+      }
       # lazygit
       {
         plugin = toggleterm-nvim;
@@ -108,10 +137,10 @@
     ];
   };
   
-  programs.neovim.coc = {
-    enable = true;
-    pluginConfig = builtins.readFile ./coc.vim;
-  };
+#  programs.neovim.coc = {
+#    enable = true;
+#    pluginConfig = builtins.readFile ./coc.vim;
+#  };
 
   xdg.configFile."nvim/UltiSnips" = {
     source = ./UltiSnips;
