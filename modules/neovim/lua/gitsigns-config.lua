@@ -1,13 +1,20 @@
 -- keymappings
--- hunk info 
-vim.keymap.set('n', '<leader>gp', "<cmd>Gitsigns preview_hunk<cr>", {silent = true})
-vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns toggle_deleted<cr>", {silent = true})
-vim.keymap.set('n', '<leader>gu', "<cmd>Gitsigns undo_stage_hunk<cr>", {silent = true})
--- Stage hunk
-vim.keymap.set('n', 'gs', "<cmd>Gitsigns stage_hunk<cr>")
--- Jump to previous/next hunk
-vim.keymap.set('n', 'gk', "<cmd>Gitsigns prev_hunk<cr>", {silent = true})
-vim.keymap.set('n', 'gj', "<cmd>Gitsigns next_hunk<cr>", {silent = true})
+local wk = require("which-key")
+wk.register({
+    g = {
+        name = "git", -- optional group name
+        -- hunk info 
+        p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk" },
+        d = { "<cmd>Gitsigns toggle_deleted<cr>", "Show deleted hunk" },
+        u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo hunk" },
+    },
+}, { prefix = "<leader>" })
+wk.register({
+    s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
+    k = { "<cmd>Gitsigns prev_hunk<cr>", "Prev hunk" },
+    j = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk" },
+}, { prefix = "g" })
+
 
 require('gitsigns').setup {
   -- signs = {

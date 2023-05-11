@@ -6,7 +6,7 @@
     vimAlias = true;
     extraConfig = builtins.readFile ./basic.vim;
     plugins = with pkgs.vimPlugins; [
-      # packer-nvim
+      which-key-nvim
       nvim-lspconfig # Quickstart configurations for the Nvim LSP client
       null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
       # Code completion
@@ -21,6 +21,22 @@
         type = "lua";
         config = builtins.readFile ./lua/cmp.lua;
       }
+      {
+        plugin = renamer-nvim;
+        type = "lua";
+        config = ''
+        require('renamer').setup {}
+        vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+        '';
+      }
+      telescope-nvim
+      telescope-fzf-native-nvim
+      {
+        plugin = telescope-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/telescope.lua;
+      }
       #
       vim-surround # Easy to add/delete/change pairs
       vim-repeat # Cooporated with surround.vim, so that ds, cs, yss can be repeated
@@ -28,7 +44,11 @@
       vim-smoothie # Smooth scroll
       vim-lastplace # Reopen files at the last edit position
       vim-toml
-      nvim-autopairs
+      {
+        plugin = nvim-autopairs;
+        type = "lua";
+        config = "require('nvim-autopairs').setup{}";
+      }
       nvim-web-devicons # explorer file icons
       plenary-nvim
       (nvim-treesitter.withPlugins (p: [ p.c p.norg p.cpp]))
@@ -70,9 +90,6 @@
       {
         plugin = vim-bbye;
         config = "nnoremap <space>q <cmd>Bdelete<cr>";
-      }
-      {
-        plugin = which-key-nvim;
       }
       {
         plugin = material-vim;

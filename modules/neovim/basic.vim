@@ -48,6 +48,9 @@ set signcolumn=yes
 " Get rid of highlighting matches after searching text
 set nohlsearch
 
+set timeout
+set timeoutlen=500
+
 " Basic key mappings
 
 " Map <space> to <leader>
