@@ -21,6 +21,7 @@
 
       impermanence.url = "github:nix-community/impermanence";
       nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+      nixneovimplugins.url = "github:jooooscha/nixpkgs-vim-extra-plugins";
 
       home-manager = {                                                      # User Package Management
         url = "github:nix-community/home-manager";
@@ -35,8 +36,9 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true; # allow proprietary software
-        config.permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
-        overlays = [ inputs.nixgl.overlay ];
+        overlays = [
+            inputs.nixneovimplugins.overlays.default
+        ];
       };
     in 
     {

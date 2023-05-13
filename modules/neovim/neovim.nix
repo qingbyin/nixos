@@ -7,6 +7,11 @@
     extraConfig = builtins.readFile ./basic.vim;
     plugins = with pkgs.vimPlugins; [
       which-key-nvim
+      {
+        plugin = pkgs.vimExtraPlugins.obsidian-nvim;
+        type = "lua";
+        config = "require('obsidian').setup {}";
+      }
       nvim-lspconfig # Quickstart configurations for the Nvim LSP client
       null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
       # Code completion
@@ -163,4 +168,8 @@
     source = ./UltiSnips;
     recursive = true;
   };
+
+  home.packages = with pkgs; [
+    obsidian
+  ];
 }
