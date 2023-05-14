@@ -10,7 +10,7 @@
       {
         plugin = pkgs.vimExtraPlugins.obsidian-nvim;
         type = "lua";
-        config = "require('obsidian').setup {}";
+        config = builtins.readFile ./lua/obsidian.lua;
       }
       nvim-lspconfig # Quickstart configurations for the Nvim LSP client
       null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
@@ -56,7 +56,7 @@
       }
       nvim-web-devicons # explorer file icons
       plenary-nvim
-      (nvim-treesitter.withPlugins (p: [ p.c p.norg p.cpp]))
+      (nvim-treesitter.withPlugins (p: [ p.nix p.c p.norg p.cpp p.markdown p.markdown_inline]))
       {
         plugin = neorg;
         type = "lua";

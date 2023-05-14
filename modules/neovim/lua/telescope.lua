@@ -41,6 +41,7 @@ wk.register({
   },
   x = { "<cmd>Telescope commands theme=ivy<cr>", "cmd" },
 }, { prefix = "<leader>" })
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files theme=ivy<cr>', { noremap = true, silent = true })
 
 wk.register({
     d = {"<cmd>Telescope lsp_implementations<cr>", "To impletation"},
