@@ -72,7 +72,7 @@
     #goldendict
     uget # download manager
     peek # gif screen recorder
-    anki-bin
+    #anki-bin
 
     # lazy
     lazydocker
