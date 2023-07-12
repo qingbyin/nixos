@@ -45,7 +45,13 @@
       #
       vim-surround # Easy to add/delete/change pairs
       vim-repeat # Cooporated with surround.vim, so that ds, cs, yss can be repeated
-      vim-commentary # Comment using <gcc>
+      {
+        plugin = vim-commentary; # Comment using <gcc>
+        config = ''
+            autocmd FileType nix setlocal commentstring=#\ %s
+            autocmd FileType cpp setlocal commentstring=//\ %s
+        '';
+      }
       vim-smoothie # Smooth scroll
       vim-lastplace # Reopen files at the last edit position
       vim-toml
@@ -56,21 +62,28 @@
       }
       nvim-web-devicons # explorer file icons
       plenary-nvim
-      (nvim-treesitter.withPlugins (p: [ p.nix p.c p.norg p.cpp p.markdown p.markdown_inline]))
       {
-        plugin = neorg;
+        plugin =  (nvim-treesitter.withPlugins (p: [
+          p.nix
+          p.c p.cpp
+          p.markdown p.markdown_inline]));
         type = "lua";
-        config = ''
-            require('neorg').setup { load = {
-                    ["core.defaults"] = {},
-                    ["core.completion"] = {
-                    config = { engine = "nvim-cmp"},
-                    },
-                    ["core.concealer"] = {}
-                }
-            }
-        '';
+        config = "require('nvim-treesitter.configs').setup{highlight={enable=true}}";
       }
+#      {
+#        plugin = neorg;
+#        type = "lua";
+#        config = ''
+#            require('neorg').setup { load = {
+#                    ["core.defaults"] = {},
+#                    ["core.completion"] = {
+#                    config = { engine = "nvim-cmp"},
+#                    },
+#                    ["core.concealer"] = {}
+#                }
+#            }
+#        '';
+#      }
       # lazygit
       {
         plugin = toggleterm-nvim;
