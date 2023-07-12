@@ -12,6 +12,7 @@
   imports = [
     # ./modules/emacs/emacs.nix
     ./modules/common/zsh.nix
+    ./modules/alacritty/alacritty.nix
     # ./modules/kitty/kitty.nix
     ./modules/vscode/vscode.nix
     ./modules/neovim/neovim.nix

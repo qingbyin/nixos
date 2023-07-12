@@ -12,6 +12,12 @@
         type = "lua";
         config = builtins.readFile ./lua/obsidian.lua;
       }
+      {
+        plugin = nvim-colorizer-lua; # color preview
+        type = "lua";
+        config = "require'colorizer'.setup()";
+
+      }
       nvim-lspconfig # Quickstart configurations for the Nvim LSP client
       null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
       # Code completion
