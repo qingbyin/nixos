@@ -154,6 +154,9 @@
       {
         plugin = indentLine;
         config = ''
+          " Disable conceal at cursor
+          let g:indentLine_concealcursor = ''
+          let g:indentLine_conceallevel = 2
           " Show leading spaces
           let g:indentLine_leadingSpaceEnabled = 1
           let g:indentLine_leadingSpaceChar = '·'
