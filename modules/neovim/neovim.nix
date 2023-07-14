@@ -72,9 +72,13 @@
         plugin =  (nvim-treesitter.withPlugins (p: [
           p.nix
           p.c p.cpp
+          p.org
           p.markdown p.markdown_inline]));
         type = "lua";
         config = "require('nvim-treesitter.configs').setup{highlight={enable=true}}";
+      }
+      {
+        plugin = vim-orgmode;
       }
 #      {
 #        plugin = neorg;
@@ -155,7 +159,7 @@
         plugin = indentLine;
         config = ''
           " Disable conceal at cursor
-          let g:indentLine_concealcursor = ''
+          let g:indentLine_concealcursor = ""
           let g:indentLine_conceallevel = 2
           " Show leading spaces
           let g:indentLine_leadingSpaceEnabled = 1
