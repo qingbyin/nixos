@@ -93,3 +93,6 @@ inoremap <c-j> <nop>
 highlight! link SignColumn LineNr
 
 autocmd BufEnter *.launch set filetype=xml
+
+" Show markdown code block symbol as ">" symbol
+autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
