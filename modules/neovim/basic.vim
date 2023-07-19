@@ -96,3 +96,5 @@ autocmd BufEnter *.launch set filetype=xml
 
 " Show markdown code block symbol as ">" symbol
 autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
+
+nnoremap <c-space> <cmd>lua vim.lsp.buf.code_action()<CR>
