@@ -57,6 +57,7 @@
     fd
     ripgrep
     ripgrep-all
+    cloc # count code lines
 
     # Video/Audio
     mpv               # Media Player

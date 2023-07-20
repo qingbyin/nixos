@@ -72,6 +72,7 @@
         plugin =  (nvim-treesitter.withPlugins (p: [
           p.nix
           p.c p.cpp
+          p.rust
           p.org
           p.markdown p.markdown_inline]));
         type = "lua";

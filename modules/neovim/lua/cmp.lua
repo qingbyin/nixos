@@ -69,3 +69,16 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- rust
+require'lspconfig'.rust_analyzer.setup{
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true;
+      }
+    }
+  }
+}
+require'lspconfig'.rust_analyzer.setup{}
+
