@@ -183,6 +183,12 @@
         plugin = fcitx-vim;
         config = "let g:fcitx5_remote = '~/.nix-profile/bin/fcitx5-remote'";
       }
+      {
+        plugin = julia-vim;
+        config = ''
+        let g:latex_to_unicode_file_types = ".*"
+        '';
+      }
     ];
   };
   
