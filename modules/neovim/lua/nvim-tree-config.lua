@@ -1,7 +1,7 @@
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.keymap.set('n', '<leader>e', "<cmd>NvimTreeToggle<cr>", {silent = true})
+vim.keymap.set('n', '<leader>e', "<cmd>NvimTreeFindFileToggle<cr>", {silent = true})
 -- Set keymapping in the explorer
 local function my_on_attach(bufnr)
     local api = require("nvim-tree.api")
@@ -23,7 +23,11 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
+    custom = {"^\\.git"}
   },
   on_attach = my_on_attach,
+  git = {
+      ignore = false,
+  },
 })
