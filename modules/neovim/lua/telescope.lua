@@ -18,6 +18,32 @@ require('telescope').setup {
                 -- the default case_mode is "smart_case"
             }
         },
+        vimgrep_arguments = {
+            "rg",
+            "--vimgrep",
+            "--smart-case",
+            "--no-ignore-vcs"
+        },
+        -- FIXME: not working
+        -- pickers = {
+        --     find_files = {
+        --         find_command = {
+        --             "fd",
+        --             ".",
+        --             "--type",
+        --             "file",
+        --             "--hidden",
+        --             "--no-ignore-vcs",
+        --             "--strip-cwd-prefix"
+        --         },
+        --         no_ignore = true,
+        --         theme = "ivy",
+        --     },
+        --     live_grep = {
+        --         theme = "ivy",
+        --     },
+        -- },
+        file_ignore_patterns = {"^.git/"},
     }
 }
 -- To get fzf loaded and working with telescope, you need to call
@@ -41,8 +67,7 @@ wk.register({
   },
   x = { "<cmd>Telescope commands theme=ivy<cr>", "cmd" },
 }, { prefix = "<leader>" })
-vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files theme=ivy<cr>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files find_command=fd,--no-ignore-vcs theme=ivy<cr>', { noremap = true, silent = true })
 wk.register({
     d = {"<cmd>Telescope lsp_implementations<cr>", "To impletation"},
     f = {"<cmd>Telescope lsp_definitions<cr>", "To definition"},
