@@ -45,6 +45,10 @@
         crxPath = "/home/qyin/.config/chrome/extensions/scihub.crx";
         version = "0.2.2";
       }
+      { id = "cfhdojbkjhnklbpkdaibdccddilifddb";
+        crxPath = "/home/qyin/.config/chrome/extensions/adblock_plus.crx";
+        version = "3.16.1";
+      }
     ];
   };
   xdg.configFile."chrome/extensions" = {
