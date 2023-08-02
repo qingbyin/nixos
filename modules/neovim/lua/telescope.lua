@@ -43,7 +43,7 @@ require('telescope').setup {
         --         theme = "ivy",
         --     },
         -- },
-        file_ignore_patterns = {"^.git/"},
+        file_ignore_patterns = {"^.git/", "^build/", "^devel/"},
     }
 }
 -- To get fzf loaded and working with telescope, you need to call
