@@ -18,10 +18,15 @@
         config = "require'colorizer'.setup()";
 
       }
-      nvim-lspconfig # Quickstart configurations for the Nvim LSP client
-      null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
       # Code completion
       cmp-nvim-lsp # completion source for neovim builtin LSP client
+      {
+        plugin = nvim-lspconfig; # Quickstart configurations for the Nvim LSP client
+        type = "lua";
+        config = builtins.readFile ./lua/lspconfig.lua;
+        
+      }
+      null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
       cmp-buffer # completion source for buffer words
       cmp-path # completion source for paths
       cmp-cmdline # command line suggestions
