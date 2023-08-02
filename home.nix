@@ -69,6 +69,7 @@
     # Apps
     appimage-run      # Runs AppImages on NixOS
     onlyoffice-bin    # Office
+    # wpsoffice-cn
     rclone
     flameshot         # Screenshot
     #goldendict

@@ -10,6 +10,7 @@ icons = "awesome6"
 
 [[block]]
 block = "pomodoro"
+notify_cmd = "notify-send --urgency="critical" '{msg}'"
 
 [[block]]
 block = "custom"
