@@ -194,6 +194,12 @@
         let g:latex_to_unicode_file_types = ".*"
         '';
       }
+      {
+        plugin = markdown-preview-nvim;
+        config = ''
+        let g:mkdp_browser = '/home/qyin/.nix-profile/bin/brave'
+        '';
+      }
     ];
   };
   
