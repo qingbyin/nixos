@@ -2,6 +2,10 @@
 -- the loading is important
 require('telescope').setup {
     defaults = {
+        path_display = {"truncate"},
+        -- path_display = {
+        --     shorten = {len = 1, exclude = {1, -1}}
+        -- },
         mappings = {
             i = {
                 ["<C-j>"] = "move_selection_next",
