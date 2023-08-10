@@ -38,6 +38,11 @@
         config = builtins.readFile ./lua/cmp.lua;
       }
       {
+        plugin = lsp_signature-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/lsp_signature.lua;
+      }
+      {
         plugin = renamer-nvim;
         type = "lua";
         config = ''
