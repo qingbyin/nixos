@@ -190,6 +190,28 @@
         config = builtins.readFile ./lua/gitsigns-config.lua;
       }
       {
+        plugin = git-messenger-vim;
+        config = ''
+            " set the cursor goes into a popup window when running git-messenger
+            let g:git_messenger_always_into_popup=v:true
+            let g:git_messenger_no_default_mappings=v:true " Disable default mapping
+            let g:git_messenger_include_diff='current'
+
+            " Show git commit at current position
+            nmap <space>gh <Plug>(git-messenger)
+
+
+            function! s:setup_git_messenger_popup() abort
+            " Go back/forward history in git messenger popup window
+            nmap <buffer><C-k> o
+            nmap <buffer><C-j> O
+            " Close popup window
+            nmap <buffer><Esc> q
+            endfunction
+            autocmd FileType gitmessengerpopup call <SID>setup_git_messenger_popup()
+        '';
+      }
+      {
         plugin = fcitx-vim;
         config = "let g:fcitx5_remote = '~/.nix-profile/bin/fcitx5-remote'";
       }

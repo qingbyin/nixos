@@ -4,8 +4,8 @@ wk.register({
     g = {
         name = "git", -- optional group name
         -- hunk info 
-        p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview hunk" },
-        d = { "<cmd>Gitsigns toggle_deleted<cr>", "Show deleted hunk" },
+        d = { "<cmd>Gitsigns preview_hunk<cr>", "Diff hunk" },
+        D = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Diff hunk inline" },
         u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo hunk" },
     },
 }, { prefix = "<leader>" })
