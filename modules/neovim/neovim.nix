@@ -31,7 +31,20 @@
       cmp-path # completion source for paths
       cmp-cmdline # command line suggestions
       cmp_luasnip # Luasnip completion source for nvim-cmp
-      luasnip # Snippet engine
+      {
+        plugin = luasnip; # Snippet engine
+        type = "lua";
+        config = ''
+            local luasnip = require("luasnip")
+            luasnip.setup({
+                history = true,
+                delete_check_events = {"TextChanged", "InsertLeave"},
+            })
+            --  Use <C-j/k> to jump to next/previous placeholder
+            vim.keymap.set({"i", "s"}, "<C-j>", function() luasnip.jump( 1) end, {silent = true})
+            vim.keymap.set({"i", "s"}, "<C-k>", function() luasnip.jump(-1) end, {silent = true})
+        '';
+      }
       {
         plugin = nvim-cmp;
         type = "lua";
