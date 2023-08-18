@@ -6,7 +6,7 @@ wk.register({
         -- hunk info 
         d = { "<cmd>Gitsigns preview_hunk<cr>", "Diff hunk" },
         D = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Diff hunk inline" },
-        u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo hunk" },
+        u = { "<cmd>Gitsigns reset_hunk<cr>", "Undo hunk" },
     },
 }, { prefix = "<leader>" })
 wk.register({
@@ -42,7 +42,7 @@ require('gitsigns').setup {
     ignore_whitespace = false,
   },
   current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
-  sign_priority = 6,
+  sign_priority = 100,
   update_debounce = 100,
   status_formatter = nil, -- Use default
   max_file_length = 40000, -- Disable if file is longer than this (in lines)
