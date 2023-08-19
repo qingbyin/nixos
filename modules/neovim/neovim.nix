@@ -238,6 +238,7 @@
         plugin = markdown-preview-nvim;
         config = ''
         let g:mkdp_browser = '/home/qyin/.nix-profile/bin/brave'
+        let g:mkdp_theme = 'dark'
         '';
       }
     ];
