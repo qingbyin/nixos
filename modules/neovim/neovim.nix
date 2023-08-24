@@ -99,7 +99,13 @@
           p.org
           p.markdown p.markdown_inline]));
         type = "lua";
-        config = "require('nvim-treesitter.configs').setup{highlight={enable=true}}";
+        config = ''
+        require('nvim-treesitter.configs').setup{
+            highlight = {enable = true},
+            indent = {enable = true},
+        }
+        vim.api.nvim_set_hl(0, "@text.strong.markdown_inline", { link = "Identifier" })
+        '';
       }
       {
         plugin = vim-orgmode;
