@@ -101,3 +101,7 @@ autocmd BufEnter *.md set shiftwidth=2
 let g:markdown_folding = 1 " Enable markdown folding
 
 nnoremap <c-space> <cmd>lua vim.lsp.buf.code_action()<CR>
+
+" Show whitespace/tab/break explicitly (Use symbols similar to Office Word)
+" set list listchars=tab:→\ ,trail:·,precedes:←,extends:→,space:·
+set list listchars=tab:→\ ,trail:·

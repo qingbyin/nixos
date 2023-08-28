@@ -214,22 +214,14 @@
       }
       # Indent guide
       {
-        plugin = indentLine;
+        plugin = indent-blankline-nvim;
+        type = "lua";
         config = ''
-          " Disable conceal at cursor
-          let g:indentLine_concealcursor = ""
-          let g:indentLine_conceallevel = 2
-          " Show leading spaces
-          let g:indentLine_leadingSpaceEnabled = 1
-          let g:indentLine_leadingSpaceChar = '·'
-          " Show idnent guide lines
-          let g:indentLine_showFirstIndentLevel = 1
-          let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-          " Show whitespace/tab/break explicitly (Use symbols similar to Office Word)
-          " set list listchars=tab:→\ ,trail:·,precedes:←,extends:→,space:·
-          set list listchars=tab:→\ ,trail:·
+            require("indent_blankline").setup {
+                show_current_context = true,
+                show_current_context_start = true,
+            }
         '';
-        
       }
       {
         plugin = gitsigns-nvim;
