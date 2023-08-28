@@ -1,6 +1,8 @@
 -- Set up lspconfig.
 
--- Add additional capabilities supported by nvim-cmp
+--  nvim-cmp supports more types of completion candidates than default lsp
+--  override the capabilities sent to the server such that it can provide
+--  these candidates during a completion request
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 

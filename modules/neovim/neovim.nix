@@ -81,6 +81,29 @@
             autocmd FileType cpp setlocal commentstring=//\ %s
         '';
       }
+      promise-async # nvim-ufo deps
+      {
+        plugin = nvim-ufo; #  folded lines like other modern
+        type = "lua";
+        config = ''
+            vim.o.foldcolumn = '1' -- '0' is not bad
+            vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+            vim.o.foldlevelstart = 99
+            vim.o.foldenable = true
+            vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+            -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+            vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+            vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+            -- use treesitter as ufo main provider
+            require('ufo').setup({
+                    provider_selector = function(bufnr, filetype, buftype)
+                    return {'treesitter', 'indent'}
+                    end
+            })
+        '';
+      }
       vim-smoothie # Smooth scroll
       vim-lastplace # Reopen files at the last edit position
       vim-toml
@@ -94,7 +117,7 @@
       {
         plugin =  (nvim-treesitter.withPlugins (p: [
           p.nix
-          p.c p.cpp
+          p.c p.cpp p.cmake
           p.rust
           p.org
           p.markdown p.markdown_inline]));
@@ -153,10 +176,15 @@
         plugin = material-vim;
         config = ''
           let g:material_theme_style = 'palenight'
+        '';
+      }
+      {
+        plugin = tokyonight-nvim;
+        config = ''
           if (has('termguicolors'))
             set termguicolors
           endif
-          colorscheme material
+          colorscheme tokyonight-moon
         '';
       }
       {
@@ -171,7 +199,7 @@
           set showcmd
           " Config the bottom modeline and the top tabline
           let g:lightline = {
-                \ 'colorscheme': 'material_vim',
+                \ 'colorscheme': 'tokyonight',
                 \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
                 \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
                 \ 'tabline': {

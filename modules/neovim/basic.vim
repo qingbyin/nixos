@@ -100,8 +100,4 @@ autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
 autocmd BufEnter *.md set shiftwidth=2
 let g:markdown_folding = 1 " Enable markdown folding
 
-" Use treesitter based folding
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-
 nnoremap <c-space> <cmd>lua vim.lsp.buf.code_action()<CR>
