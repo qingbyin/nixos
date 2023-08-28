@@ -262,5 +262,6 @@
 
   home.packages = with pkgs; [
     obsidian
+    cmake-language-server
   ];
 }

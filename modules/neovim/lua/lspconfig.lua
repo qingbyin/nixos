@@ -21,7 +21,11 @@ lspconfig.rust_analyzer.setup {
         }
     }
 }
--- lspconfig.rust_analyzer.setup{}
+-- CMake
+lspconfig.cmake.setup{
+    -- Enable language servers with the additional completion capabilities
+    capabilities = capabilities
+}
 -- Other languages
 local servers = {'pyright'}
 for _, lsp in ipairs(servers) do
