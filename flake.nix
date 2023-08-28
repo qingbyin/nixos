@@ -6,7 +6,7 @@
     substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://nix-community.cachix.org"
-      #"https://cache.nixos.org/"
+      "https://cache.nixos.org/"
     ];
     trusted-substituters = [
       "https://mirrors.ustc.edu.cn/nix-channels/store"
@@ -19,7 +19,8 @@
   };
   inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
     {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+      nixpkgs.url = "nixpkgs/nixos-23.05";
+      nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
       nur.url = "github:nix-community/NUR";
       nixgl.url = "git+https://ghproxy.com/https://github.com/guibou/nixGL"; # OpenGL wrapper
 
@@ -33,15 +34,23 @@
       };
     };
 
-    outputs = { nixpkgs, home-manager, ... } @inputs:
+    outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... } @inputs:
     let                                                                     
       user = "qyin";
       system = "x86_64-linux";
+      # Overlays-module makes "pkgs.unstable" available in home.nix
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true; # allow proprietary software
         overlays = [
             inputs.nixneovimplugins.overlays.default
+            overlay-unstable
         ];
       };
     in 
