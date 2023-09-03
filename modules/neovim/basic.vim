@@ -105,3 +105,7 @@ nnoremap <c-space> <cmd>lua vim.lsp.buf.code_action()<CR>
 " Show whitespace/tab/break explicitly (Use symbols similar to Office Word)
 " set list listchars=tab:→\ ,trail:·,precedes:←,extends:→,space:·
 set list listchars=tab:→\ ,trail:·
+
+if (has('termguicolors'))
+    set termguicolors
+endif

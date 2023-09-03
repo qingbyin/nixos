@@ -176,16 +176,14 @@
         plugin = material-vim;
         config = ''
           let g:material_theme_style = 'palenight'
+          colorscheme material
         '';
       }
       {
         plugin = tokyonight-nvim;
-        config = ''
-          if (has('termguicolors'))
-            set termguicolors
-          endif
-          colorscheme tokyonight-moon
-        '';
+        # config = ''
+        #   colorscheme tokyonight-moon
+        # '';
       }
       {
         plugin = lightline-vim;
@@ -199,7 +197,7 @@
           set showcmd
           " Config the bottom modeline and the top tabline
           let g:lightline = {
-                \ 'colorscheme': 'tokyonight',
+                \ 'colorscheme': 'material',
                 \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
                 \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
                 \ 'tabline': {
@@ -219,7 +217,7 @@
         config = ''
             require("indent_blankline").setup {
                 show_current_context = true,
-                show_current_context_start = true,
+                -- show_current_context_start = true,
             }
         '';
       }
