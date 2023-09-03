@@ -76,6 +76,8 @@
     uget # download manager
     peek # gif screen recorder
     #anki-bin
+    unstable.qq
+    keeweb # password manager
 
     # lazy
     lazydocker
