@@ -96,6 +96,7 @@ autocmd BufEnter *.launch set filetype=xml
 
 " Show markdown code block symbol as ">" symbol
 autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
+autocmd BufEnter *.md set conceallevel=1
 " indentation with 2 whitespaces in markdown
 autocmd BufEnter *.md set shiftwidth=2
 let g:markdown_folding = 1 " Enable markdown folding
