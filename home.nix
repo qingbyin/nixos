@@ -65,6 +65,7 @@
     plex-media-player # Media Player
     vlc               # Media Player
     stremio           # Media Streamer
+    blueberry # bluetooth config tool
 
     # Apps
     appimage-run      # Runs AppImages on NixOS
@@ -78,6 +79,7 @@
     #anki-bin
     unstable.qq
     keeweb # password manager
+    zotero
 
     # lazy
     lazydocker
