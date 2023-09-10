@@ -120,6 +120,7 @@
           p.c p.cpp p.cmake
           p.rust
           p.org
+          p.norg
           p.markdown p.markdown_inline]));
         type = "lua";
         config = ''
@@ -133,20 +134,20 @@
       {
         plugin = vim-orgmode;
       }
-#      {
-#        plugin = neorg;
-#        type = "lua";
-#        config = ''
-#            require('neorg').setup { load = {
-#                    ["core.defaults"] = {},
-#                    ["core.completion"] = {
-#                    config = { engine = "nvim-cmp"},
-#                    },
-#                    ["core.concealer"] = {}
-#                }
-#            }
-#        '';
-#      }
+     {
+       plugin = neorg;
+       type = "lua";
+       config = ''
+           require('neorg').setup { load = {
+                   ["core.defaults"] = {},
+                   ["core.completion"] = {
+                   config = { engine = "nvim-cmp"},
+                   },
+                   ["core.concealer"] = {}
+               }
+           }
+       '';
+     }
       # lazygit
       {
         plugin = toggleterm-nvim;
