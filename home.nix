@@ -80,6 +80,7 @@
     unstable.qq
     keeweb # password manager
     zotero
+    freerdp # remote desktop
 
     # lazy
     lazydocker
