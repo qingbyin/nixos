@@ -21,6 +21,7 @@
       rofi
       lxappearance # Modify icon and themes
       feh # wallpaper setting
+      i3-swallow # run app with hiding terminal window (send to the scratchpad)
   ];
 
   xdg.configFile."wallpapers" = {
