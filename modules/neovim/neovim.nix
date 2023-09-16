@@ -274,6 +274,7 @@ in
         type = "lua";
         config = ''
             require("virt-column").setup { virtcolumn = "80,120" }
+            vim.cmd[[highlight! link VirtColumn Comment]]
         '';
       }
     ];
