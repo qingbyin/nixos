@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+with import <nixpkgs> {};
+let virt-column = callPackage ./virt-column.nix { };
+in
 {
   programs.neovim = {
     enable = true;
@@ -264,6 +267,13 @@
         config = ''
         let g:mkdp_browser = '/home/qyin/.nix-profile/bin/brave'
         let g:mkdp_theme = 'dark'
+        '';
+      }
+      {
+        plugin = virt-column;
+        type = "lua";
+        config = ''
+            require("virt-column").setup { virtcolumn = "80,120" }
         '';
       }
     ];
