@@ -75,6 +75,7 @@
     flameshot         # Screenshot
     #goldendict
     uget # download manager
+    yt-dlp # video download CLI (e.g. youtube, bilibili)
     peek # gif screen recorder
     #anki-bin
     unstable.qq
