@@ -64,6 +64,7 @@
     pavucontrol       # Audio Control
     plex-media-player # Media Player
     vlc               # Media Player
+    ffmpeg
     stremio           # Media Streamer
     blueberry # bluetooth config tool
 
@@ -75,6 +76,7 @@
     flameshot         # Screenshot
     #goldendict
     uget # download manager
+    # (pkgs.callPackage ./modules/common/fdm.nix {})
     yt-dlp # video download CLI (e.g. youtube, bilibili)
     peek # gif screen recorder
     #anki-bin
