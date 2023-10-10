@@ -41,6 +41,19 @@
   @theme "android_notification.rasi"
   '';
 
+  # i3lock with background images
+  home.file.".local/bin/i3lock-img".text =
+  ''
+    #!/bin/bash
+
+    SCREEN_RESOLUTION="$(xdpyinfo | grep dimensions | cut -d' ' -f7)"
+    BGCOLOR="#000000"
+    images=($(ls ~/.config/wallpapers/*.png))
+    convert "''${images[ $RANDOM % ''${#images[@]} ]}" -gravity Center -background \
+     $BGCOLOR -extent "$SCREEN_RESOLUTION" RGB:- \
+     | i3lock --raw "$SCREEN_RESOLUTION":rgb -c $BGCOLOR -i /dev/stdin
+  '';
+
   # Notification daemon
   services.dunst = {
     enable = true;
