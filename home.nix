@@ -58,6 +58,7 @@
     ripgrep
     ripgrep-all
     cloc # count code lines
+    imagemagick # include commands like "convert"
 
     # Video/Audio
     mpv               # Media Player
@@ -84,6 +85,7 @@
     keeweb # password manager
     zotero
     freerdp # remote desktop
+    drawio
 
     # lazy
     lazydocker
