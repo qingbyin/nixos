@@ -86,6 +86,7 @@
     zotero
     freerdp # remote desktop
     drawio
+    inkscape-with-extensions
 
     # lazy
     lazydocker
