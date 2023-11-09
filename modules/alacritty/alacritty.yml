@@ -2,7 +2,7 @@
 font:
   normal:
     family: FiraCode Nerd Font
-  size: 8.0
+  size: 12.0
 
 # Colors (Tomorrow Night)
 colors:
@@ -52,3 +52,8 @@ colors:
     #focused_match:
     #  foreground: '#ffffff'
     #  background: '#000000'
+    #
+
+env:
+  WINIT_HIDPI_FACTOR: "1.0"
+  WINIT_X11_SCALE_FACTOR: "1.0"
