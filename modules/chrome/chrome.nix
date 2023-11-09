@@ -3,7 +3,7 @@
 {
   programs.chromium = {
     enable = true;
-    package = pkgs.brave;
+    package = pkgs.unstable.brave;
     extensions = [
       # SwitchyOmega
       { id = "padekgcemlokbadohgkifijomclgjgif";
