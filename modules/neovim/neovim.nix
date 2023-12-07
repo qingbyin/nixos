@@ -46,6 +46,8 @@ in
             --  Use <C-j/k> to jump to next/previous placeholder
             vim.keymap.set({"i", "s"}, "<C-j>", function() luasnip.jump( 1) end, {silent = true})
             vim.keymap.set({"i", "s"}, "<C-k>", function() luasnip.jump(-1) end, {silent = true})
+            -- Load local snippets in .config/nvim/snippets
+            require("luasnip.loaders.from_snipmate").lazy_load()
         '';
       }
       {
@@ -285,8 +287,8 @@ in
 #    pluginConfig = builtins.readFile ./coc.vim;
 #  };
 
-  xdg.configFile."nvim/UltiSnips" = {
-    source = ./UltiSnips;
+  xdg.configFile."nvim/snippets" = {
+    source = ./snippets;
     recursive = true;
   };
 

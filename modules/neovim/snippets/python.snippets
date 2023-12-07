@@ -1,0 +1,23 @@
+# if __name__ == '__main__':
+snippet ifmain
+	if __name__ == '__main__':
+		${0:main()}
+
+# Module Docstring
+snippet docs
+	"""
+	File: ${1:`vim_snippets#Filename('$1.py', 'foo.py')`}
+	Author: `g:snips_author`
+	Email: `g:snips_email`
+	Github: `g:snips_github`
+	Description: ${0}
+	"""
+
+snippet "
+	"""${0:doc}
+	"""
+
+snippet def
+	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+		"""${3:docstring for $1}"""
+		${0}
