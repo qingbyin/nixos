@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 with import <nixpkgs> {};
-let virt-column = callPackage ./virt-column.nix { };
+let
+virt-column = callPackage ./overlays/virt-column.nix { };
+obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
 in
 {
   programs.neovim = {
@@ -11,7 +13,7 @@ in
     plugins = with pkgs.vimPlugins; [
       which-key-nvim
       {
-        plugin = pkgs.vimExtraPlugins.obsidian-nvim;
+        plugin = obsidian-nvim;
         type = "lua";
         config = builtins.readFile ./lua/obsidian.lua;
       }
@@ -51,7 +53,7 @@ in
         '';
       }
       {
-        plugin = nvim-cmp;
+        plugin = pkgs.unstable.vimPlugins.nvim-cmp;
         type = "lua";
         config = builtins.readFile ./lua/cmp.lua;
       }
