@@ -2,8 +2,8 @@
 
 " Tab settings
 set expandtab  " Convert tab to spaces automatically
-set tabstop=4  " 1 tab = 4 spaces
-set shiftwidth=4
+set tabstop=2  " 1 tab = 4 spaces
+set shiftwidth=2
 set encoding=utf8
 
 " Vertical ruler
@@ -96,9 +96,7 @@ autocmd BufEnter *.launch set filetype=xml
 
 " Show markdown code block symbol as ">" symbol
 autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
-autocmd BufEnter *.md set conceallevel=1
-" indentation with 2 whitespaces in markdown
-autocmd BufEnter *.md set shiftwidth=2
+autocmd BufRead,BufEnter *.md set conceallevel=1
 let g:markdown_folding = 1 " Enable markdown folding
 
 nnoremap <c-space> <cmd>lua vim.lsp.buf.code_action()<CR>
