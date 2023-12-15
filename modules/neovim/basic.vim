@@ -98,6 +98,7 @@ autocmd BufEnter *.launch set filetype=xml
 autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
 autocmd BufRead,BufEnter *.md set conceallevel=1
 let g:markdown_folding = 1 " Enable markdown folding
+let g:markdown_recommended_style = 0 " Do not modify shiftwidth
 
 nnoremap <c-space> <cmd>lua vim.lsp.buf.code_action()<CR>
 
