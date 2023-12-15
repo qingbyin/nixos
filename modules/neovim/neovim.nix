@@ -282,6 +282,23 @@ in
             vim.cmd[[highlight! link VirtColumn Comment]]
         '';
       }
+      {
+        plugin = copilot-lua;
+        type = "lua";
+        config = ''
+          require("copilot").setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+          })
+        '';
+      }
+      {
+        plugin = copilot-cmp;
+        type = "lua";
+        config = ''
+          require("copilot_cmp").setup()
+        '';
+      }
     ];
   };
   
@@ -298,5 +315,6 @@ in
   home.packages = with pkgs; [
     obsidian
     cmake-language-server
+    nodejs_21 # requried by copilot
   ];
 }
