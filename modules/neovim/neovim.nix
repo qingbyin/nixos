@@ -316,5 +316,6 @@ in
     obsidian
     cmake-language-server
     nodejs_21 # requried by copilot
+    nodePackages.pyright # python lsp
   ];
 }
