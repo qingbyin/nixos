@@ -129,6 +129,8 @@ in
           p.rust
           p.org
           p.norg
+          p.html
+          p.yaml
           p.markdown p.markdown_inline]));
         type = "lua";
         config = ''
