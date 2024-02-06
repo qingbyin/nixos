@@ -20,4 +20,32 @@ snippet low
 snippet urge
 	🔺
 
+snippet date
+	`strftime("%Y-%m-%d")`
+
+snippet note
+	- id: `strftime("%Y%m%d%H%M%S")`
+	- status: #note
+	- tags: [[${1:none}]]
+
+	# ${TM_FILENAME_BASE}
+
+	${2:text}
+
+	---
+	# References
+	
+snippet td
+	- [ ] ${1:task}
+
+snippet -
+	- [ ] ${1:task}
+
+snippet ma
+	$${1}$${2}
+
+snippet mb
+	$$
+	${1}
+	$$
 	
