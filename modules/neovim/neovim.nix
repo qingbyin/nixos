@@ -315,7 +315,7 @@ in
   };
 
   home.packages = with pkgs; [
-    obsidian
+    unstable.obsidian
     cmake-language-server
     nodejs_21 # requried by copilot
     nodePackages.pyright # python lsp
