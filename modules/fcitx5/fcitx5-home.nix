@@ -10,6 +10,7 @@
       fcitx5-chinese-addons
       fcitx5-table-extra
       fcitx5-gtk
+      fcitx5-rime
     ];
   };
 
@@ -26,4 +27,8 @@
   home.file.".local/share/fcitx5/themes/Nord/theme.conf".source = ./theme.conf;
   home.file.".local/share/fcitx5/themes/Nord/radio.png".source = ./radio.png;
   home.file.".local/share/fcitx5/themes/Nord/arrow.png".source = ./arrow.png;
+
+    # rime
+  home.file.".local/share/fcitx5/rime/default.custom.yaml".source = ./default.custom.yaml;
+  home.file.".local/share/fcitx5/rime/double_pinyin_flypy.custom.yaml".source = ./double_pinyin_flypy.custom.yaml;
 }
