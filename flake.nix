@@ -22,7 +22,7 @@
       nixpkgs.url = "nixpkgs/nixos-23.05";
       nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
       nur.url = "github:nix-community/NUR";
-      nixgl.url = "git+https://ghproxy.com/https://github.com/guibou/nixGL"; # OpenGL wrapper
+      # nixgl.url = "git+https://ghproxy.com/https://github.com/guibou/nixGL"; # OpenGL wrapper
 
       impermanence.url = "github:nix-community/impermanence";
       nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
@@ -51,6 +51,7 @@
         overlays = [
             inputs.nixneovimplugins.overlays.default
             overlay-unstable
+            inputs.nur.overlay
         ];
       };
     in 
