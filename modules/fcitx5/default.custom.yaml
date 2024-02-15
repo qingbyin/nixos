@@ -1,16 +1,23 @@
 patch:
+  # 仅使用「雾凇拼音」的默认配置，配置此行即可
+  __include: rime_ice_suggestion:/
   schema_list:
     - schema: double_pinyin_flypy
     - schema: luna_pinyin
   menu/page_size: 9 # 每页显示候选字词数量
   "switcher/hotkeys":  # 输入法切换快捷键
     - "Control+grave"  # 即 Ctrl+`
-  ascii_composer:
-    good_old_caps_lock: true
-    switch_key:
-      Caps_Lock: clear
-      Control_L: noop
-      Control_R: noop
-      Eisu_toggle: clear
-      Shift_L: inline_ascii
-      Shift_R: commit_text
+  # ascii_composer:
+  #   good_old_caps_lock: true
+    # switch_key:
+    #   Caps_Lock: clear
+    #   Control_L: noop
+    #   Control_R: noop
+    #   Eisu_toggle: clear
+    #   Shift_L: inline_ascii
+    #   Shift_R: commit_text
+  __patch:
+    key_binder/bindings/+:
+      # 开启逗号句号翻页
+      - { when: paging, accept: comma, send: Page_Up }
+      - { when: has_menu, accept: period, send: Page_Down }
