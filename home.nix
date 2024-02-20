@@ -50,6 +50,7 @@
     xclip
 
     # Terminal
+    tmux
     btop              # Resource Manager
     nitch             # Minimal fetch (faster than screenfetch)
     ranger            # File Manager
