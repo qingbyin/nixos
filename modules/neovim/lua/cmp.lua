@@ -14,6 +14,8 @@ cmp.setup({
         -- documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
+        -- only support cmp's documentation window https://github.com/hrsh7th/nvim-cmp/issues/1410#issuecomment-1426777143
+        -- It won't support nvim-lsp's hover window.
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),

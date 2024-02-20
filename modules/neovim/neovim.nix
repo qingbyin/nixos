@@ -126,11 +126,13 @@ in
         plugin =  (nvim-treesitter.withPlugins (p: [
           p.nix
           p.c p.cpp p.cmake
+          p.python
           p.rust
           p.org
           p.norg
           p.html
           p.yaml
+          p.latex
           p.markdown p.markdown_inline]));
         type = "lua";
         config = ''
@@ -300,6 +302,11 @@ in
         config = ''
           require("copilot_cmp").setup()
         '';
+      }
+      {
+        plugin = neogen;
+        type = "lua";
+        config = builtins.readFile ./lua/neogen.lua;
       }
     ];
   };
