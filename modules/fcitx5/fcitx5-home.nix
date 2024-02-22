@@ -30,5 +30,5 @@
 
   # rime
   home.file.".local/share/fcitx5/rime/default.custom.yaml".text = builtins.readFile ./default.custom.yaml;
-  # home.file.".local/share/fcitx5/rime/double_pinyin_flypy.custom.yaml".source = ./double_pinyin_flypy.custom.yaml;
+  home.file.".local/share/fcitx5/rime/double_pinyin_flypy.custom.yaml".text = builtins.readFile ./double_pinyin_flypy.custom.yaml;
 }

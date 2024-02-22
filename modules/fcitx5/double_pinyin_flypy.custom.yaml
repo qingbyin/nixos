@@ -1,10 +1,13 @@
 patch:
-  switches: # 注意缩进
-    - name: ascii_mode
-      reset: 0 # reset 0 的作用是当从其他输入法切换到本输入法重设为指定状态
-      states: [中文, 西文] # 选择输入方案后通常需要立即输入中文，故重设 ascii_mode = 0
-    - name: full_shape
-      states: [半角, 全角] # 而全／半角则可沿用之前方案的用法。
-    - name: simplification
-      reset: 1 # 增加这一行：默认启用「繁→簡」转换。
-      states: [漢字, 汉字]
+  translator/preedit_format: [] # 双拼不转化为全拼显示
+  # 更改辅助码，从默认的`修改为|（不常用按键）
+  key_bindr/search: "|"
+  auto_commit_single_punct: "|"
+  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
+  # 部件拆字反查
+  # 反查前缀，需要与recognizer/patterns/radical_lookup 匹配
+  radical_lookup/prefix: "~"
+  recognizer/patterns/radical_lookup: "^~[a-z]+$"
+  # 将辅助码|和拆字反查~加入字母表 -- 避免它们直接上屏（否则无法触发拆字）
+  speller/alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA|~
+
