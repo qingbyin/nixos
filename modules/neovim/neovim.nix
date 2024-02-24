@@ -209,7 +209,7 @@ in
         type = "lua";
         config = ''
             require("ibl").setup {
-              indent = { char = "┊" },
+              indent = { char = "▏" },
             }
         '';
       }
