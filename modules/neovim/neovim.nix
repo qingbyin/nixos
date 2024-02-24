@@ -166,11 +166,9 @@ in
         config = "nnoremap <space>q <cmd>Bdelete<cr>";
       }
       {
-        plugin = material-vim;
-        config = ''
-          let g:material_theme_style = 'palenight'
-          colorscheme material
-        '';
+        plugin = material-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/material.lua;
       }
       {
         plugin = tokyonight-nvim;
