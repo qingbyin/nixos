@@ -16,7 +16,7 @@
   };
 
   home.packages = with pkgs; [
-      unstable.i3status-rust
+      i3status-rust
       xautolock # Tool for auto lock (run i3lock) after a given time
       rofi
       lxappearance # Modify icon and themes

@@ -55,7 +55,7 @@ in
         '';
       }
       {
-        plugin = pkgs.unstable.vimPlugins.nvim-cmp;
+        plugin = nvim-cmp;
         type = "lua";
         config = builtins.readFile ./lua/cmp.lua;
       }
@@ -128,6 +128,8 @@ in
           p.nix
           p.c p.cpp p.cmake
           p.python
+          p.lua
+          p.vim p.vimdoc
           p.rust
           p.org
           p.norg
@@ -229,9 +231,8 @@ in
         plugin = indent-blankline-nvim;
         type = "lua";
         config = ''
-            require("indent_blankline").setup {
-                show_current_context = true,
-                -- show_current_context_start = true,
+            require("ibl").setup {
+              indent = { char = "┊" },
             }
         '';
       }
@@ -293,7 +294,7 @@ in
         config = ''
           require("copilot").setup({
             suggestion = { enabled = false },
-            panel = { enabled = false },
+            panel = { enabled = false }
           })
         '';
       }
@@ -324,7 +325,7 @@ in
   };
 
   home.packages = with pkgs; [
-    unstable.obsidian
+    obsidian
     cmake-language-server
     nodejs_21 # requried by copilot
     nodePackages.pyright # python lsp

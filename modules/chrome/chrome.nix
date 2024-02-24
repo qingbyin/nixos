@@ -1,9 +1,9 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.chromium = {
     enable = true;
-    package = pkgs.unstable.brave;
+    package = pkgs.brave;
     extensions = [
       # SwitchyOmega
       { id = "padekgcemlokbadohgkifijomclgjgif";

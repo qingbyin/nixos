@@ -1,12 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ pkgs, user, lib, ... }:
+{ config, pkgs, ... }:
 
 {
 
   home = {
-    username = "${user}";
-    homeDirectory = "/home/${user}";
+    username = "qyin";
+    homeDirectory = "/home/qyin";
   };
 
   imports = [
@@ -82,7 +82,7 @@
     yt-dlp # video download CLI (e.g. youtube, bilibili)
     peek # gif screen recorder
     #anki-bin
-    unstable.qq
+    qq
     keeweb # password manager
     zotero
     freerdp # remote desktop
@@ -141,7 +141,7 @@
 
   # Set the minimum required home-manager version
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 }
