@@ -3,7 +3,6 @@ patch:
   # 更改辅助码，从默认的`修改为|（不常用按键）
   key_bindr/search: "|"
   auto_commit_single_punct: "|"
-  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
   # 部件拆字反查
   # 反查前缀，需要与recognizer/patterns/radical_lookup 匹配
   radical_lookup/prefix: "~"
