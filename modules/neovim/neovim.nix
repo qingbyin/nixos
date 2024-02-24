@@ -4,6 +4,7 @@ with import <nixpkgs> {};
 let
 virt-column = callPackage ./overlays/virt-column.nix { };
 obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
+copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
 in
 {
   programs.neovim = {
@@ -297,7 +298,8 @@ in
         '';
       }
       {
-        plugin = copilot-cmp;
+        # plugin = copilot-cmp;
+        plugin = copilot-cmp-latest;
         type = "lua";
         config = ''
           require("copilot_cmp").setup()
