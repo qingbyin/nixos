@@ -19,7 +19,7 @@
   };
   inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
     {
-      nixpkgs.url = "nixpkgs/nixos-23.05";
+      nixpkgs.url = "https://github.com/NixOS/nixpkgs/archive/refs/tags/24.05-pre.tar.gz";
       nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
       nur.url = "github:nix-community/NUR";
       # nixgl.url = "git+https://ghproxy.com/https://github.com/guibou/nixGL"; # OpenGL wrapper
