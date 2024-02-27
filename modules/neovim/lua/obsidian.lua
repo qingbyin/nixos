@@ -169,6 +169,7 @@ local cfg = {
       open_notes_in = "current",
     
       -- Optional, configure additional syntax highlighting / extmarks.
+      -- This requires you have `conceallevel` set to 1 or 2
       ui = {
         enable = true,  -- set to false to disable all additional syntax features
         update_debounce = 200,  -- update delay after a text change (in milliseconds)
@@ -240,3 +241,9 @@ local cfg = {
       yaml_parser = "native",
     }
 require "obsidian".setup(cfg)
+
+-- Set conceallevel=1 for markdown (required by obisidian-nvim ui rendering)
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.md"},
+  command = "set conceallevel=1",
+})

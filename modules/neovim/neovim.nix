@@ -14,11 +14,6 @@ in
     plugins = with pkgs.vimPlugins; [
       which-key-nvim
       {
-        plugin = obsidian-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/obsidian.lua;
-      }
-      {
         plugin = nvim-colorizer-lua; # color preview
         type = "lua";
         config = "require'colorizer'.setup()";
@@ -253,7 +248,16 @@ in
         config = ''
         let g:mkdp_browser = '/home/qyin/.nix-profile/bin/brave'
         let g:mkdp_theme = 'dark'
+        " Show markdown code block symbol as ">" symbol
+        autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
+        " let g:markdown_folding = 1 " Enable markdown folding
+        let g:markdown_recommended_style = 0 " Do not modify shiftwidth
         '';
+      }
+      {
+        plugin = obsidian-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/obsidian.lua;
       }
       {
         plugin = virt-column;
