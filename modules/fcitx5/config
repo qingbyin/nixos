@@ -1,6 +1,8 @@
 [Hotkey]
 # Enumerate when press trigger key repeatedly
 EnumerateWithTriggerKeys=True
+# Temporally switch between first and current Input Method
+AltTriggerKeys=
 # Enumerate Input Method Forward
 EnumerateForwardKeys=
 # Skip first input method while enumerating
@@ -12,9 +14,6 @@ EnumerateGroupBackwardKeys=
 
 [Hotkey/TriggerKeys]
 0=Alt+Shift+Shift_L
-
-[Hotkey/AltTriggerKeys]
-0=Shift+Shift_L
 
 [Hotkey/EnumerateBackwardKeys]
 0=Control+Shift_R
@@ -67,4 +66,9 @@ EnabledAddons=
 DisabledAddons=
 # Preload input method to be used by default
 PreloadInputMethod=True
-
+# Allow input method in the password field
+AllowInputMethodForPassword=False
+# Show preedit text when typing password
+ShowPreeditForPassword=False
+# Interval of saving user data in minutes
+AutoSavePeriod=30
