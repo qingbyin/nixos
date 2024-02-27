@@ -14,6 +14,7 @@ local function my_on_attach(bufnr)
     -- User mappings
     vim.keymap.set('n', 'h',  api.node.navigate.parent_close,        opts('Close Directory'))
     vim.keymap.set('n', 'l',  api.node.open.edit,                    opts('Open'))
+    vim.keymap.set('n', 'L',  api.node.run.system, opts('Open System'))
 end
 
 -- OR setup with some options
