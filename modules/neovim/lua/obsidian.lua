@@ -78,12 +78,9 @@ local cfg = {
   end,
 
   -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-  disable_frontmatter = false,
+  disable_frontmatter = true,
   note_frontmatter_func = function(note)
     -- Add the title of the note as an alias.
-    if note.title then
-      note:add_alias(note.title)
-    end
     note:add_field("links", {})
     local out = { id = note.id, aliases = note.aliases, status = note.tags}
     -- `note.metadata` contains any manually added fields in the frontmatter.
