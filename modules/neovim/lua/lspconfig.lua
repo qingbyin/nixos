@@ -9,9 +9,12 @@ local lspconfig = require('lspconfig')
 -- Config lsp
 -- clangd
 lspconfig['clangd'].setup {
-    cmd = { "clangd"},
-    -- Enable language servers with the additional completion capabilities
-    capabilities = capabilities
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+  -- Enable language servers with the additional completion capabilities
+  capabilities = capabilities,
 }
 -- rust
 lspconfig.rust_analyzer.setup {
