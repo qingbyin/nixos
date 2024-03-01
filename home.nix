@@ -9,7 +9,25 @@
     homeDirectory = "/home/qyin";
   };
 
+  # Modify environment setings to make nix compatiable with distro like Ubuntu
+  targets.genericLinux.enable = true;
+  # Default application dir for nix
+  xdg.mime.enable = true;
+  xdg.mimeApps = {
+    enable = true; # create .config/mimeapps.list
+    defaultApplications = {
+      "text/html" = "brave.desktop";
+      "x-scheme-handler/http" = "brave.desktop";
+      "x-scheme-handler/https" = "brave.desktop";
+      "application/pdf" = "okular.desktop";
+      "image/jpeg" = "feh.desktop";
+      "video/mp4" = "vlc.desktop";
+      "text/plain" = "nvim.desktop";
+    };
+  };
+
   imports = [
+    ./modules/fonts/fonts.nix
     # ./modules/emacs/emacs.nix
     ./modules/common/zsh.nix
     ./modules/alacritty/alacritty.nix
@@ -49,6 +67,7 @@
     ripgrep-all
     cloc # count code lines
     imagemagick # include commands like "convert"
+    pandoc
 
     # Video/Audio
     mpv               # Media Player
@@ -61,8 +80,8 @@
 
     # Apps
     appimage-run      # Runs AppImages on NixOS
-    onlyoffice-bin    # Office
-    # wpsoffice-cn
+    # onlyoffice-bin    # Office
+    wpsoffice-cn
     rclone
     flameshot         # Screenshot
     #goldendict
