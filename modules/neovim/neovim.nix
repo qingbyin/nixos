@@ -33,6 +33,7 @@ in
       cmp-cmdline # command line suggestions
       cmp_luasnip # Luasnip completion source for nvim-cmp
       lspkind-nvim # vscode-like completion icons
+      lsp-status-nvim # show lsp status in statusline
       {
         plugin = luasnip; # Snippet engine
         type = "lua";
@@ -183,6 +184,8 @@ in
         type = "lua";
         config = builtins.readFile ./lua/lualine.lua;
       }
+      lualine-lsp-progress # show lsp server start progress
+      lsp-status-nvim # show lsp status in statusline
       # Indent guide
       {
         plugin = indent-blankline-nvim;
