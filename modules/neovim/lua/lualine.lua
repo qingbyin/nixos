@@ -18,7 +18,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {'filename','lsp_progress'},
     lualine_x = {'filetype', "require'lsp-status'.status()"},
     lualine_y = {'progress'},
     lualine_z = {'location'}
@@ -26,7 +26,7 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename', 'lsp_progress'},
+    lualine_c = {'filename'},
     lualine_x = {'location'},
     lualine_y = {},
     lualine_z = {}
@@ -36,3 +36,6 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+-- hide show mode, e.g. --insert--
+vim.opt.showmode = false
