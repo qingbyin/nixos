@@ -161,40 +161,27 @@ in
         config = "nnoremap <space>q <cmd>Bdelete<cr>";
       }
       {
+        # dislike its purple modeline
         plugin = material-nvim;
         type = "lua";
         config = builtins.readFile ./lua/material.lua;
       }
       {
+        # dislike its pink keywords
         plugin = tokyonight-nvim;
         # config = ''
         #   colorscheme tokyonight-moon
         # '';
       }
       {
-        plugin = lightline-vim;
-        config = ''
-          " Always enable modeline/tabline
-          set laststatus=2
-          set showtabline=2
-          " Hide the mode info, e.g. -- NORM --
-          set noshowmode
-          " Show pressed keys on the right bottom
-          set showcmd
-          " Config the bottom modeline and the top tabline
-          let g:lightline = {
-                \ 'colorscheme': 'material',
-                \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-                \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-                \ 'tabline': {
-                \   'left': [ ['tabs'] ],
-                \   'right': [ ['modified'] ]
-                \ },
-                \ 'component_type': {
-                \   'tabs': 'filename'
-                \ }
-                \ }
-          '';
+        plugin = catppuccin-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/catppuccin.lua;
+      }
+      {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = builtins.readFile ./lua/lualine.lua;
       }
       # Indent guide
       {
