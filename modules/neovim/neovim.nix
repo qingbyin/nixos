@@ -135,7 +135,7 @@ in
            }
        '';
      }
-      # lazygit
+      # easy terminal open/close, lazygit
       {
         plugin = toggleterm-nvim;
         type = "lua";
