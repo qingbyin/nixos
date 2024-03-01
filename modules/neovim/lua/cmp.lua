@@ -1,6 +1,7 @@
+-- Modify pmenu height
+vim.o.pumheight = 5 -- default is 10
 -- Set up nvim-cmp.
 local cmp = require'cmp'
-
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine

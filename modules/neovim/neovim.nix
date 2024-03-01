@@ -38,7 +38,7 @@ in
       cmp-path # completion source for paths
       cmp-cmdline # command line suggestions
       cmp_luasnip # Luasnip completion source for nvim-cmp
-      lspkind-nvim # vscode-like completion icons
+      lspkind-nvim # vscode-like completion icons (config in cmp.lua)
       {
         plugin = luasnip; # Snippet engine
         type = "lua";
