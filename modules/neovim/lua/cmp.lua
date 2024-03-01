@@ -31,7 +31,10 @@ cmp.setup({
       { name = 'path'},
     }, {
         { name = 'buffer' },
-    })
+    }),
+    experimental = {
+      ghost_text = true, -- virutal text
+    },
 })
 
 -- Set configuration for specific filetype.
