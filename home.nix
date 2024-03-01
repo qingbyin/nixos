@@ -22,23 +22,12 @@
   ];
 
   # Install packages with plugins and configs
-  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     # OpenGL
     # nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware, e.g. nvidia or amd
     # glxinfo
     # vulkan-tools
     # glmark2
-
-    # Fonts
-    source-han-sans
-    source-han-serif
-    wqy_microhei
-    source-code-pro
-    jetbrains-mono
-    font-awesome 
-    corefonts # MS (e.g. Time New Roman)
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })# Nerdfont Icons override
 
     vim
     wget

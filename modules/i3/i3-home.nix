@@ -37,6 +37,7 @@
       kb-row-down: "Down,Control+j,Control+n";
       kb-remove-to-eol: "";
       kb-accept-entry: "Return,KP_Enter";
+      font: "文泉驿等宽微米黑 12";
   }
   @theme "android_notification.rasi"
   '';
