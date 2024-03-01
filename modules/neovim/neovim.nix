@@ -17,23 +17,28 @@ in
         plugin = nvim-colorizer-lua; # color preview
         type = "lua";
         config = "require'colorizer'.setup()";
-
       }
-      # Code completion
-      cmp-nvim-lsp # completion source for neovim builtin LSP client
+      # Config corresponding lsp tools for different languages
       {
         plugin = nvim-lspconfig; # Quickstart configurations for the Nvim LSP client
         type = "lua";
         config = builtins.readFile ./lua/lspconfig.lua;
-        
       }
-      null-ls-nvim # Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+      # Universal interface for non-lsp-standard formatting/linting tools
+      # see the demo in https://www.youtube.com/watch?v=SxuwQJ0JHMU
+      # not need by now, because all the language I used have lsp tools
+      # {
+      #   plugin = none-ls-nvim;
+      #   type = "lua";
+      #   config = builtins.readFile ./lua/none-ls.lua;
+      # }
+      # Code completion
+      cmp-nvim-lsp # completion source for neovim builtin LSP client
       cmp-buffer # completion source for buffer words
       cmp-path # completion source for paths
       cmp-cmdline # command line suggestions
       cmp_luasnip # Luasnip completion source for nvim-cmp
       lspkind-nvim # vscode-like completion icons
-      lsp-status-nvim # show lsp status in statusline
       {
         plugin = luasnip; # Snippet engine
         type = "lua";
@@ -315,5 +320,7 @@ in
     cmake-language-server
     nodejs_21 # requried by copilot
     nodePackages.pyright # python lsp
+    clang-tools
+    lua-language-server
   ];
 }
