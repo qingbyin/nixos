@@ -3,7 +3,7 @@
 with import <nixpkgs> {};
 let
 virt-column = callPackage ./overlays/virt-column.nix { };
-obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
+# obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
 copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
 in
 {
@@ -272,8 +272,8 @@ in
         type = "lua";
         config = ''
           require("copilot").setup({
-            suggestion = { enabled = false },
-            panel = { enabled = false },
+            suggestion = { enabled = true },
+            panel = { enabled = true },
             filetypes = {markdown = true}
           })
         '';
