@@ -88,8 +88,9 @@ nmap <F1> <nop>
 imap <F1> <nop>
 " TODO Add reason
 inoremap <c-j> <nop>
-" Disable command history
-nmap <q> <nop>
+" Disable recording
+nnoremap Q <nop>
+nnoremap q <nop>
 
 " Set SignColumn background color (same as the lineNumber bg color)
 highlight! link SignColumn LineNr
