@@ -1,8 +1,11 @@
 # Font configuration
 font:
   normal:
-    family: FiraCode SourceHanSerif
+    family: Maple Mono
   size: 12.0
+  offset:
+    x: 0
+    y: 1 # line spacing
 
 # Colors (Tomorrow Night)
 colors:

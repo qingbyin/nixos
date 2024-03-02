@@ -9,12 +9,14 @@
     source-han-sans
     source-han-serif
     wqy_microhei
+    maple-mono # round conrner for both Chinese and English
     source-code-pro
     jetbrains-mono
     font-awesome
     corefonts # MS (e.g. Time New Roman)
     (nerdfonts.override { fonts = [ "FiraCode" ]; })# Nerdfont Icons override
     noto-fonts-color-emoji
+    unifont
   ];
 
   # Set alias for san-serif, serif and monospace
@@ -56,10 +58,10 @@
   <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
   <fontconfig>
     <alias>
-      <family>FiraCode SourceHanSerif</family>
+      <family>FiraCode Chinese</family>
       <prefer>
           <family>FiraCode Nerd Font</family>
-          <family>Source Han Serif</family>
+          <family>Source Han Sans</family>
           <family>Noto Color Emoji</family>
           <family>Unifont</family>
       </prefer>
