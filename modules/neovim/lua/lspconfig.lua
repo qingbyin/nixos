@@ -9,6 +9,14 @@ local lspconfig = require('lspconfig')
 -- Config lsp
 -- lua
 lspconfig.lua_ls.setup{}
+-- json
+lspconfig.jsonls.setup {
+  -- Enable language servers with the additional completion capabilities
+  capabilities = capabilities,
+  cmd = {
+     "/home/qyin/.nix-profile/bin/vscode-json-languageserver", "--stdio"
+  },
+}
 -- clangd
 lspconfig['clangd'].setup {
   cmd = {

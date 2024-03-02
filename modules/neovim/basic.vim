@@ -31,8 +31,8 @@ set cursorline
 " Command line auto completion
 set wildmode=longest:full,full
 
-" pop menu height
-set pumheight=10
+" pop menu height (set in cmp.lua)
+" set pumheight=10
 
 " Enable mouse in normal/visual/insert mode
 set mouse=nvi

@@ -203,6 +203,7 @@ in
         config = ''
             require("ibl").setup {
               indent = { char = "▏" },
+              exclude = { filetypes = {"help", "toggleterm", "dashboard", "alpha" } }
             }
         '';
       }
@@ -338,5 +339,6 @@ in
     nodePackages.pyright # python lsp
     clang-tools
     lua-language-server
+    nodePackages.vscode-json-languageserver
   ];
 }
