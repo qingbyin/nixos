@@ -1,5 +1,7 @@
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
+local themes = require('telescope.themes')
+local builtin = require('telescope.builtin')
 require('telescope').setup {
     defaults = {
         path_display = {"truncate"},
@@ -54,15 +56,13 @@ require('telescope').setup {
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
 
-local builtin = require('telescope.builtin')
-
 local wk = require("which-key")
 wk.register({
   f = {
     name = "file", -- optional group name
     f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find File" },
     g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Global grep" },
-    b = { "<cmd>Telescope buffers theme=ivy<cr>", "Find buffer" },
+    b = { "<cmd>Telescope buffers theme=ivy<cr>", "Find opening file" },
     h = { "<cmd>Telescope help_tags theme=ivy<cr>", "Help menu" },
     m = { "<cmd>Telescope keymaps<cr>", "Find keymaps" },
     o = {"<cmd>Telescope lsp_document_symbols theme=ivy<cr>", "List buffer Symbol"},
@@ -71,7 +71,11 @@ wk.register({
   },
   x = { "<cmd>Telescope commands theme=ivy<cr>", "cmd" },
 }, { prefix = "<leader>" })
-vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>Telescope find_files find_command=fd,--no-ignore-vcs theme=ivy<cr>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<C-p>',
+  '<cmd>Telescope find_files find_command=fd,--no-ignore-vcs theme=ivy<cr>', { noremap = true, silent = true })
+vim.keymap.set("n", "/", function() builtin.current_buffer_fuzzy_find(themes.get_ivy()) end)
+
 wk.register({
     d = {"<cmd>Telescope lsp_implementations<cr>", "To impletation"},
     f = {"<cmd>Telescope lsp_definitions<cr>", "To definition"},
