@@ -125,6 +125,11 @@ in
         '';
       }
       {
+        plugin = nvim-ts-context-commentstring;
+        type = "lua";
+        config = "require('ts_context_commentstring').setup{}";
+      }
+      {
         plugin = vim-orgmode;
       }
      {
@@ -300,6 +305,17 @@ in
               end,
             }
           }
+        '';
+      }
+      # vscode-like tab (i.e. buffer list in vim) UI
+      {
+        plugin = bufferline-nvim; # require nvim-web-devicons
+        type = "lua";
+        config = ''
+          require'bufferline'.setup{}
+          -- nvim map
+          vim.keymap.set('n', '<Tab>', '<cmd>:BufferLineCycleNext<cr>')
+          vim.keymap.set('n', '<S-Tab>', '<cmd>:BufferLineCyclePrev<cr>')
         '';
       }
     ];
