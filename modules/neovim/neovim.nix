@@ -250,7 +250,7 @@ in
         let g:mkdp_browser = '/home/qyin/.nix-profile/bin/brave'
         let g:mkdp_theme = 'dark'
         " Show markdown code block symbol as ">" symbol
-        autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
+        " autocmd BufEnter *.md syntax match Entity "```" conceal cchar=>
         " let g:markdown_folding = 1 " Enable markdown folding
         let g:markdown_recommended_style = 0 " Do not modify shiftwidth
         '';
@@ -298,12 +298,8 @@ in
         config = ''
           require'clipboard-image'.setup {
             default = {
-              img_name = function ()
-                vim.fn.inputsave()
-                local name = vim.fn.input('Name: ')
-                vim.fn.inputrestore()
-                return name
-              end,
+              img_dir = "img",
+              img_name = function () return os.date('%Y%m%d%H%M%S') end,
             }
           }
         '';
