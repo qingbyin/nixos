@@ -28,13 +28,14 @@ lspconfig['clangd'].setup {
 }
 -- rust
 lspconfig.rust_analyzer.setup {
-    settings = {
-        ['rust-analyzer'] = {
-            diagnostics = {
-                enable = true;
-            }
-        }
+  capabilities = capabilities,
+  settings = {
+    ['rust-analyzer'] = {
+      diagnostics = {
+        enable = true;
+      }
     }
+  }
 }
 -- CMake
 lspconfig.cmake.setup{
