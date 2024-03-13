@@ -315,13 +315,6 @@ in
           vim.keymap.set('n', '<S-Tab>', '<cmd>:BufferLineCyclePrev<cr>')
         '';
       }
-      {
-        # require run in conda : pip install jupynium
-        # debug: call :JupyniumStartAndAttachToServerInTerminal
-        plugin = jupynium-nvim;
-        type = "lua";
-        config = builtins.readFile ./lua/jupynium.lua;
-      }
     ];
   };
   
