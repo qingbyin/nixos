@@ -29,14 +29,14 @@
     <alias>
       <family>sans-serif</family>
       <prefer>
-        <family>Source Han Sans</family>
+        <family>Source Han Sans SC</family>
         <family>FiraCode Nerd Font</family>
       </prefer>
     </alias>
     <alias>
       <family>serif</family>
       <prefer>
-        <family>Source Han Serif</family>
+        <family>Source Han Serif SC</family>
         <family>Times New Roman</family>
       </prefer>
     </alias>
