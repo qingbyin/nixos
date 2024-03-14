@@ -96,6 +96,7 @@
     freerdp # remote desktop
     drawio
     inkscape-with-extensions
+    livecaptions
 
     # lazy
     lazydocker
