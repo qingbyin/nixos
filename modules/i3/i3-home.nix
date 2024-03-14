@@ -16,7 +16,8 @@
   };
 
   home.packages = with pkgs; [
-      i3status-rust
+      jq # requried lib for workspaces.sh
+      i3status-rust # remove
       xautolock # Tool for auto lock (run i3lock) after a given time
       rofi
       lxappearance # Modify icon and themes
