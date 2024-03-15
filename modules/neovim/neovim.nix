@@ -5,7 +5,6 @@ let
 virt-column = callPackage ./overlays/virt-column.nix { };
 # obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
 copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
-vim-jukit = callPackage ./overlays/vim-jukit.nix { };
 in
 {
   programs.neovim = {
@@ -315,13 +314,6 @@ in
           vim.keymap.set('n', '<Tab>', '<cmd>:BufferLineCycleNext<cr>')
           vim.keymap.set('n', '<S-Tab>', '<cmd>:BufferLineCyclePrev<cr>')
         '';
-      }
-      {
-        plugin = vim-jukit;
-        config = ''
-          let g:jukit_output_new_os_window = 1
-          let g:jukit_mappings = 0 " Disable default mappings
-          '';
       }
     ];
   };
