@@ -12,7 +12,12 @@ in
     vimAlias = true;
     extraConfig = builtins.readFile ./basic.vim;
     plugins = with pkgs.vimPlugins; [
-      which-key-nvim
+      {
+        plugin = which-key-nvim;
+        type = "lua";
+        # config plugins only installed by nix
+        config = builtins.readFile ./lua/vim-jukit.lua;
+      }
       {
         plugin = nvim-colorizer-lua; # color preview
         type = "lua";
