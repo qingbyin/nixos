@@ -6,6 +6,8 @@
 
   xsession = {
     enable = true;
+    # 将创建的脚本名从.xsession改为.xsessionrc
+    # 因为ubuntu下用xsessionrc启动图形桌面
     scriptPath = ".xsessionrc";
   };
   xsession.windowManager.i3 = {
