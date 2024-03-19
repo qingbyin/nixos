@@ -42,7 +42,7 @@
   # Install packages with plugins and configs
   home.packages = with pkgs; [
     # OpenGL
-    # nixgl.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware, e.g. nvidia or amd
+  # nixGL.auto.nixGLDefault # Auto-detect and install OpenGL based the hardware, e.g. nvidia or amd
     # glxinfo
     # vulkan-tools
     # glmark2
@@ -97,6 +97,9 @@
     drawio
     inkscape-with-extensions
     livecaptions
+    graphviz # graph drawing
+    # need to run with "nixgl"
+    # obs-studio # mirror a window to the external display/monitor
 
     # lazy
     lazydocker
