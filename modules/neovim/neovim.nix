@@ -208,7 +208,8 @@ in
         config = ''
             require("ibl").setup {
               indent = { char = "▏" },
-              exclude = { filetypes = {"help", "toggleterm", "dashboard", "alpha" } }
+              exclude = { filetypes = {"help", "toggleterm", "dashboard", "alpha" } },
+              scope = { show_end = false}
             }
         '';
       }
