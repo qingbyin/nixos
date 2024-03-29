@@ -23,6 +23,12 @@
       "image/jpeg" = "feh.desktop";
       "video/mp4" = "vlc.desktop";
       "text/plain" = "nvim.desktop";
+      "application/excel" = "wps-office-et.desktop";
+      "application/msexcel" = "wps-office-et.desktop";
+      "application/msword" = "wps-office-wpp.desktop";
+      "application/mspowerpoint" = "wps-office-wpp.desktop";
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+      = "wps-office-wpp.desktop";
     };
   };
 

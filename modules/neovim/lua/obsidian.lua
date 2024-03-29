@@ -159,6 +159,6 @@ require "obsidian".setup(cfg)
 -- Set conceallevel=1 for markdown (required by obisidian-nvim ui rendering)
 vim.api.nvim_create_autocmd({"BufEnter", "BufRead"}, {
   pattern = {"*.md"},
-  command = "set conceallevel=1",
+  command = "set conceallevel=2",
 })
 
