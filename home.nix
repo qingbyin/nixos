@@ -13,6 +13,7 @@
   targets.genericLinux.enable = true;
   # Default application dir for nix
   xdg.mime.enable = true;
+  xdg.configFile."mimeapps.list".force = true;
   xdg.mimeApps = {
     enable = true; # create .config/mimeapps.list
     defaultApplications = {
