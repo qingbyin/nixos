@@ -5,6 +5,7 @@ let
 virt-column = callPackage ./overlays/virt-column.nix { };
 # obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
 copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
+obsidian-bridge = callPackage ./overlays/obsidian-bridge.nix {};
 in
 {
   programs.neovim = {
@@ -265,6 +266,11 @@ in
         plugin = obsidian-nvim;
         type = "lua";
         config = builtins.readFile ./lua/obsidian.lua;
+      }
+      {
+        plugin = obsidian-bridge;
+        type = "lua";
+        config = ''require('obsidian-bridge').setup()'';
       }
       {
         plugin = virt-column;
