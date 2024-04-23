@@ -1,0 +1,18 @@
+[colors.primary]
+# Colors (Tomorrow Night)
+background = "#1c262b"
+foreground = "#c1c8d6"
+
+[env]
+WINIT_HIDPI_FACTOR = "1.0"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "Maple Mono"
+
+[font.offset]
+x = 0
+y = 1 # line spacing
