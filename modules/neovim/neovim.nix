@@ -4,7 +4,7 @@ with import <nixpkgs> {};
 let
 virt-column = callPackage ./overlays/virt-column.nix { };
 # obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
-copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
+# copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
 obsidian-bridge = callPackage ./overlays/obsidian-bridge.nix {};
 in
 {
@@ -280,25 +280,25 @@ in
             vim.cmd[[highlight! link VirtColumn Comment]]
         '';
       }
-      {
-        plugin = copilot-lua;
-        type = "lua";
-        config = ''
-          require("copilot").setup({
-            suggestion = { enabled = true },
-            panel = { enabled = true },
-            filetypes = {markdown = true}
-          })
-        '';
-      }
-      {
-        # plugin = copilot-cmp;
-        plugin = copilot-cmp-latest;
-        type = "lua";
-        config = ''
-          require("copilot_cmp").setup()
-        '';
-      }
+      # {
+      #   plugin = copilot-lua;
+      #   type = "lua";
+      #   config = ''
+      #     require("copilot").setup({
+      #       suggestion = { enabled = true },
+      #       panel = { enabled = true },
+      #       filetypes = {markdown = true}
+      #     })
+      #   '';
+      # }
+      # {
+      #   # plugin = copilot-cmp;
+      #   plugin = copilot-cmp-latest;
+      #   type = "lua";
+      #   config = ''
+      #     require("copilot_cmp").setup()
+      #   '';
+      # }
       {
         plugin = neogen;
         type = "lua";
