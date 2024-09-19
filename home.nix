@@ -53,6 +53,7 @@
     # glxinfo
     # vulkan-tools
     # glmark2
+    nix-query-tree-viewer
 
     vim
     wget
@@ -88,7 +89,10 @@
     # Apps
     appimage-run      # Runs AppImages on NixOS
     # onlyoffice-bin    # Office
-    wpsoffice-cn
+    # wpsoffice-cn
+    libreoffice
+    # vmware-workstation
+
     rclone
     flameshot         # Screenshot
     #goldendict
@@ -98,6 +102,7 @@
     peek # gif screen recorder
     #anki-bin
     qq
+    wechat-uos
     keeweb # password manager
     zotero
     freerdp # remote desktop
@@ -113,11 +118,11 @@
     lazygit
 
     # File Management
-    gnome.file-roller # Archive Manager GUI
+    file-roller # Archive Manager GUI
     okular            # PDF Viewer
     pcmanfm           # File Manager GUI
     rsync             # Syncer - $ rsync -r dir1/ dir2/
-    unzip
+    unzrip # 新版 unzip解决中文乱码：unzip -O cp936
     unrar
     zip
     p7zip

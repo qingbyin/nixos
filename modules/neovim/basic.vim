@@ -82,6 +82,7 @@ cnoremap <c-l> <right>
 " copy to the system clipboard
 nnoremap <silent> <leader>yy "+yy
 vnoremap <silent> <leader>y "+y
+vnoremap <silent> <leader>d "+d
 
 " Disable build-in help key F1
 nmap <F1> <nop>

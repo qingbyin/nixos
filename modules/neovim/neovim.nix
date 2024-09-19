@@ -138,20 +138,20 @@ in
       {
         plugin = vim-orgmode;
       }
-     {
-       plugin = neorg;
-       type = "lua";
-       config = ''
-           require('neorg').setup { load = {
-                   ["core.defaults"] = {},
-                   ["core.completion"] = {
-                   config = { engine = "nvim-cmp"},
-                   },
-                   ["core.concealer"] = {}
-               }
-           }
-       '';
-     }
+     # {
+     #   plugin = neorg;
+     #   type = "lua";
+     #   config = ''
+     #       require('neorg').setup { load = {
+     #               ["core.defaults"] = {},
+     #               ["core.completion"] = {
+     #               config = { engine = "nvim-cmp"},
+     #               },
+     #               ["core.concealer"] = {}
+     #           }
+     #       }
+     #   '';
+     # }
       # easy terminal open/close, lazygit
       {
         plugin = toggleterm-nvim;
@@ -336,8 +336,8 @@ in
   home.packages = with pkgs; [
     obsidian
     cmake-language-server
-    nodejs_21 # requried by copilot
-    nodePackages.pyright # python lsp
+    # nodejs_21 # requried by copilot
+    pyright # python lsp
     clang-tools
     lua-language-server
     nodePackages.vscode-json-languageserver

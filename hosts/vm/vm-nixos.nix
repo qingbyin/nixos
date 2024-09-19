@@ -128,7 +128,7 @@
     goldendict
 
     # File Management
-    gnome.file-roller # Archive Manager GUI
+    file-roller # Archive Manager GUI
     okular            # PDF Viewer
     pcmanfm           # File Manager GUI
     rsync             # Syncer - $ rsync -r dir1/ dir2/
