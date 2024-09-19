@@ -54,6 +54,7 @@
     # vulkan-tools
     # glmark2
     nix-query-tree-viewer
+    nodejs_22
 
     vim
     wget
@@ -92,6 +93,7 @@
     # wpsoffice-cn
     libreoffice
     # vmware-workstation
+    ventoy # bootable usb ISO installer
 
     rclone
     flameshot         # Screenshot
