@@ -1,19 +1,16 @@
 -- keymappings
 local wk = require("which-key")
-wk.register({
-    g = {
-        name = "git", -- optional group name
-        -- hunk info 
-        d = { "<cmd>Gitsigns preview_hunk<cr>", "Diff hunk" },
-        D = { "<cmd>Gitsigns preview_hunk_inline<cr>", "Diff hunk inline" },
-        u = { "<cmd>Gitsigns reset_hunk<cr>", "Undo hunk" },
-    },
-}, { prefix = "<leader>" })
-wk.register({
-    s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
-    k = { "<cmd>Gitsigns prev_hunk<cr>", "Prev hunk" },
-    j = { "<cmd>Gitsigns next_hunk<cr>", "Next hunk" },
-}, { prefix = "g" })
+wk.add({
+    { "<leader>g", group = "git" },
+    { "<leader>gD", "<cmd>Gitsigns preview_hunk_inline<cr>", desc = "Diff hunk inline" },
+    { "<leader>gd", "<cmd>Gitsigns preview_hunk<cr>", desc = "Diff hunk" },
+    { "<leader>gu", "<cmd>Gitsigns reset_hunk<cr>", desc = "Undo hunk" },
+})
+wk.add({
+    { "gj", "<cmd>Gitsigns next_hunk<cr>", desc = "Next hunk" },
+    { "gk", "<cmd>Gitsigns prev_hunk<cr>", desc = "Prev hunk" },
+    { "gs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage hunk" },
+})
 
 
 require('gitsigns').setup {

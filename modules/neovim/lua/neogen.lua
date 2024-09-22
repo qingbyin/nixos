@@ -4,5 +4,7 @@ require('neogen').setup {
 }
 
 local wk = require("which-key")
-wk.register({ c = { name = "code", d = {"<cmd>Neogen<cr>", "docstring"} } },
-  {prefix = "<leader>"})
+wk.add({
+  { "<leader>c", group = "code" },
+  { "<leader>cd", "<cmd>Neogen<cr>", desc = "docstring" },
+})

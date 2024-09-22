@@ -57,29 +57,39 @@ require('telescope').setup {
 require('telescope').load_extension('fzf')
 
 local wk = require("which-key")
-wk.register({
-  f = {
-    name = "file", -- optional group name
-    f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find File" },
-    g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Global grep" },
-    b = { "<cmd>Telescope buffers theme=ivy<cr>", "Find opening file" },
-    h = { "<cmd>Telescope help_tags theme=ivy<cr>", "Help menu" },
-    m = { "<cmd>Telescope keymaps<cr>", "Find keymaps" },
-    o = {"<cmd>Telescope lsp_document_symbols theme=ivy<cr>", "List buffer Symbol"},
-    O = {"<cmd>Telescope lsp_workspace_symbols theme=ivy<cr>", "List all Symbol"},
-    a = {"<cmd>Telescope diagnostics theme=ivy<cr>", "LSP Diagnostics"},
-  },
-  x = { "<cmd>Telescope commands theme=ivy<cr>", "cmd" },
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>f", group = "file" },
+    { "<leader>fO", "<cmd>Telescope lsp_workspace_symbols theme=ivy<cr>", desc = "List all Symbol" },
+    { "<leader>fa", "<cmd>Telescope diagnostics theme=ivy<cr>", desc = "LSP Diagnostics" },
+    { "<leader>fb", "<cmd>Telescope buffers theme=ivy<cr>", desc = "Find opening file" },
+    { "<leader>ff", "<cmd>Telescope find_files theme=ivy<cr>", desc = "Find File" },
+    { "<leader>fg", "<cmd>Telescope live_grep theme=ivy<cr>", desc = "Global grep" },
+    { "<leader>fh", "<cmd>Telescope help_tags theme=ivy<cr>", desc = "Help menu" },
+    { "<leader>fm", "<cmd>Telescope keymaps<cr>", desc = "Find keymaps" },
+    { "<leader>fo", "<cmd>Telescope lsp_document_symbols theme=ivy<cr>", desc = "List buffer Symbol" },
+    { "<leader>x", "<cmd>Telescope commands theme=ivy<cr>", desc = "cmd" },
+  -- f = {
+  --   name = "file", -- optional group name
+  --   f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find File" },
+  --   g = { "<cmd>Telescope live_grep theme=ivy<cr>", "Global grep" },
+  --   b = { "<cmd>Telescope buffers theme=ivy<cr>", "Find opening file" },
+  --   h = { "<cmd>Telescope help_tags theme=ivy<cr>", "Help menu" },
+  --   m = { "<cmd>Telescope keymaps<cr>", "Find keymaps" },
+  --   o = {"<cmd>Telescope lsp_document_symbols theme=ivy<cr>", "List buffer Symbol"},
+  --   O = {"<cmd>Telescope lsp_workspace_symbols theme=ivy<cr>", "List all Symbol"},
+  --   a = {"<cmd>Telescope diagnostics theme=ivy<cr>", "LSP Diagnostics"},
+  -- },
+})
 
 vim.api.nvim_set_keymap('n', '<C-p>',
   '<cmd>Telescope find_files find_command=fd,--no-ignore-vcs theme=ivy<cr>', { noremap = true, silent = true })
 vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case theme=ivy<cr>")
 
-wk.register({
-    d = {"<cmd>Telescope lsp_implementations<cr>", "To impletation"},
-    f = {"<cmd>Telescope lsp_definitions<cr>", "To definition"},
-    y = {"<cmd>Telescope lsp_type_definitions<cr>", "To type definition"},
-    r = {"<cmd>Telescope lsp_references theme=ivy<cr>", "List references"},
-    h = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Cursor hover"},
-}, { prefix = "g" })
+wk.add({
+    { "gd", "<cmd>Telescope lsp_implementations<cr>", desc = "To impletation" },
+    { "gf", "<cmd>Telescope lsp_definitions<cr>", desc = "To definition" },
+    { "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Cursor hover" },
+    { "gr", "<cmd>Telescope lsp_references theme=ivy<cr>", desc = "List references" },
+    { "gy", "<cmd>Telescope lsp_type_definitions<cr>", desc = "To type definition" },
+
+})

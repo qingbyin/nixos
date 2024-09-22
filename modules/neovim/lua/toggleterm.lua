@@ -35,10 +35,7 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local wk = require("which-key")
-wk.register({
-  t = { "<cmd>lua require('toggleterm').toggle()<cr>", "Terminal" },
-  g = {
-    g = { "<cmd>lua _lazygit_toggle()<cr>", "lazygit" },
-  }
-  
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>gg", "<cmd>lua _lazygit_toggle()<cr>", desc = "lazygit" },
+    { "<leader>t", "<cmd>lua require('toggleterm').toggle()<cr>", desc = "Terminal" },
+})
