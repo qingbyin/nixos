@@ -178,7 +178,8 @@ command! reload :write | restart full
 " program.  There is also %FOREGROUND, which is useful for entering passwords.
 
 " Pdf
-filextype {*.pdf},<application/pdf> zathura %c %i, apvlv %c, xpdf %c
+" filextype {*.pdf},<application/pdf> zathura %c %i, apvlv %c, xpdf %c
+filextype {*.pdf},<application/pdf> okular %f
 fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
@@ -375,7 +376,7 @@ filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
          \<application/vnd.openxmlformats-officedocument.*,
           \application/msword,
           \application/vnd.ms-excel>
-        \ libreoffice %f &
+        \ wps %f &
 fileviewer {*.doc},<application/msword> catdoc %c
 fileviewer {*.docx},
           \<application/
