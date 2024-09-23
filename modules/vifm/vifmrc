@@ -332,6 +332,16 @@ filetype {*.zip,*.jar,*.war,*.ear,*.oxt,*.apkg},
        \ unzip %c,
 fileviewer *.zip,*.jar,*.war,*.ear,*.oxt unzip -l %f
 
+filetype {*.rar},
+        \<application/x-rar>
+       \ {Mount with fuse-archive}
+       \ FUSE_MOUNT|fuse-archive %SOURCE_FILE %DESTINATION_DIR,
+       \ {View contents}
+       \ unrar l %f | less,
+       \ {Extract here}
+       \ unrar x %c,
+fileviewer *.rar unrar l %f
+
 " ArchiveMount
 filetype {*.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz,*.tar.zst,
          \*.tzst},
@@ -372,11 +382,12 @@ filetype {*.7z},<application/x-7z-compressed>
 fileviewer {*.7z},<application/x-7z-compressed> 7z l %c
 
 " Office files
-filextype {*.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx,*.ppt},
-         \<application/vnd.openxmlformats-officedocument.*,
-          \application/msword,
-          \application/vnd.ms-excel>
+filextype *.doc,*.docx,
         \ wps %f &
+filextype *.xls,*.xlsx,
+        \ et %f &
+filextype *.pptx,*.ppt,
+        \ wpp %f &
 fileviewer {*.doc},<application/msword> catdoc %c
 fileviewer {*.docx},
           \<application/
