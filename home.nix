@@ -73,6 +73,7 @@ in
     btop              # Resource Manager
     nitch             # Minimal fetch (faster than screenfetch)
     ranger            # File Manager
+    vifm
     tldr              # Helper (simplified man pages)
     fd
     ripgrep
