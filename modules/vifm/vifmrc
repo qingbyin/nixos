@@ -543,6 +543,10 @@ nnoremap <a-o> :sync %c<cr>
 nnoremap <c-u> <c-w>x
 nnoremap q :q
 
+" quick move
+nnoremap gm :media<cr>
+nnoremap gh :cd ~<cr>
+
 " ------------------------------------------------------------------------------
 " Various customization examples
 " ------------------------------------------------------------------------------
