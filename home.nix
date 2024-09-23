@@ -47,6 +47,7 @@ in
     ./modules/i3/i3-home.nix
     ./modules/fcitx5/fcitx5-home.nix
     ./modules/chrome/chrome.nix
+    ./modules/vifm/vifm.nix
   ];
 
   # Install packages with plugins and configs
@@ -73,7 +74,7 @@ in
     btop              # Resource Manager
     nitch             # Minimal fetch (faster than screenfetch)
     ranger            # File Manager
-    vifm
+    vifm-full         # file Manager, full表示支持u盘挂载
     tldr              # Helper (simplified man pages)
     fd
     ripgrep
@@ -82,7 +83,7 @@ in
     imagemagick # include commands like "convert"
     pandoc
 
-    # Video/Audio
+    # Video/Audio/image
     mpv               # Media Player
     pavucontrol       # Audio Control
     plex-media-player # Media Player
@@ -90,6 +91,7 @@ in
     ffmpeg
     stremio           # Media Streamer
     blueberry # bluetooth config tool
+    shotwell # image viewer and manager
 
     # Apps
     appimage-run      # Runs AppImages on NixOS

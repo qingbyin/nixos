@@ -102,7 +102,7 @@ endif
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 " List of color schemes to try (picks the first one supported by the terminal)
-colorscheme Default-256 Default
+colorscheme palenight Default-256 Default
 
 " ------------------------------------------------------------------------------
 " Bookmarks
@@ -451,6 +451,12 @@ nnoremap S :sort<cr>
 nnoremap w :view<cr>
 vnoremap w :view<cr>gv
 
+" Switch between buffer windows
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+
 if $DISPLAY && executable('gvim')
     " Open file in existing instance of gvim
     nnoremap o :!gvim --remote-tab-silent %f<cr>
@@ -535,6 +541,7 @@ nnoremap <a-i> :sync<cr>
 nnoremap <a-o> :sync %c<cr>
 " Swap panes
 nnoremap <c-u> <c-w>x
+nnoremap q :q
 
 " ------------------------------------------------------------------------------
 " Various customization examples
