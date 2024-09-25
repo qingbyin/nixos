@@ -12,10 +12,6 @@ require 'clipboard-image'.setup {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
-    -- Normal mode mappings
-    local leader_mappings = {
-      p = { "<cmd>PasteImg<cr>", "Paste image" },
-    }
-    wk.register(leader_mappings, { prefix = "<leader>" })
+    wk.add({"<leader>p","<cmd>PasteImg<cr>", desc = "Paste image"})
   end,
 })
