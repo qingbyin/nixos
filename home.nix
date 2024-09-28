@@ -96,8 +96,10 @@ in
     # Apps
     appimage-run      # Runs AppImages on NixOS
     # onlyoffice-bin    # Office
-    nur.repos.rewine.wps
+    # nur.repos.rewine.wps
+    wpsoffice
     libreoffice
+    pdfarranger # pdf add/remove/rotate 
     # vmware-workstation
     ventoy # bootable usb ISO installer
 
