@@ -27,6 +27,11 @@
       i3-swallow # run app with hiding terminal window (send to the scratchpad)
   ];
 
+  home.file.".config/i3/workspaces.sh" = {
+    source = ./workspaces.sh;
+    executable = true;
+  };
+
   xdg.configFile."wallpapers" = {
     source = ../common/wallpapers;
     recursive = true;
