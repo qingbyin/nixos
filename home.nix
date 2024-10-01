@@ -103,6 +103,7 @@ in
     # vmware-workstation
     ventoy # bootable usb ISO installer
 
+    synology-drive-client # 群晖同步盘
     rclone
     flameshot         # Screenshot
     #goldendict
