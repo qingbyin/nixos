@@ -557,6 +557,10 @@ nnoremap q :q
 " quick move
 nnoremap gm :media<cr>
 nnoremap gh :cd ~<cr>
+nnoremap gq :cd ~/qdrive<cr>
+" sort time ascending
+nnoremap gs :set sort=-mtime,dir
+
 
 " ------------------------------------------------------------------------------
 " Various customization examples
