@@ -5,7 +5,8 @@ let
 virt-column = callPackage ./overlays/virt-column.nix { };
 # obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
 # copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
-obsidian-bridge = callPackage ./overlays/obsidian-bridge.nix {};
+# obsidian-bridge = callPackage ./overlays/obsidian-bridge.nix {};
+render-markdown = callPackage ./overlays/render-markdown.nix { };
 in
 {
   programs.neovim = {
@@ -257,21 +258,26 @@ in
         let g:mkdp_browser = '/home/qyin/.nix-profile/bin/brave'
         let g:mkdp_theme = 'dark'
         " Show markdown code block symbol as ">" symbol
-        autocmd BufEnter *.md syntax match Entity "```" conceal cchar=→
+        " autocmd BufEnter *.md syntax match Entity "```" conceal cchar=→
         " let g:markdown_folding = 1 " Enable markdown folding
         let g:markdown_recommended_style = 0 " Do not modify shiftwidth
         '';
+      }
+      {
+        plugin = render-markdown;
+        type = "lua";
+        config = builtins.readFile ./lua/render-markdown.lua;
       }
       {
         plugin = obsidian-nvim;
         type = "lua";
         config = builtins.readFile ./lua/obsidian.lua;
       }
-      {
-        plugin = obsidian-bridge;
-        type = "lua";
-        config = ''require('obsidian-bridge').setup()'';
-      }
+      # {
+      #   plugin = obsidian-bridge;
+      #   type = "lua";
+      #   config = ''require('obsidian-bridge').setup()'';
+      # }
       {
         plugin = virt-column;
         type = "lua";
