@@ -8,6 +8,18 @@ let
     version = "0.9.0";
     sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
   };
+  tongyi-lingma = pkgs.vscode-utils.extensionFromVscodeMarketplace {
+    name = "tongyi-lingma";
+    publisher = "Alibaba-Cloud";
+    version = "1.4.3";
+    sha256 = "sha256-CB8S/k97P0/whQf0aGL1DW8+3RD8l9S1G8qKuicqvTg=";
+  };
+  live-preview = pkgs.vscode-utils.extensionFromVscodeMarketplace {
+    name = "live-server";
+    publisher = "ms-vscode";
+    version = "0.4.15";
+    sha256 = "sha256-VOhpnVy5+V51OG6pvCDZ/Jxc6cQKoq4rRqk/Hw+Pkg8=";
+  };
 in 
 {
 
@@ -18,7 +30,8 @@ in
       shd101wyy.markdown-preview-enhanced
       pkief.material-icon-theme
       zhuangtongfa.material-theme # one dark pro
-      
+      tongyi-lingma
+
       # vim
       asvetliakov.vscode-neovim
       xadillax.viml
@@ -34,6 +47,9 @@ in
       ms-python.python
       ms-python.vscode-pylance
       # ms-toolsai.jupyter
+
+      # Web dev
+      live-preview # preview html files
     ];
     userSettings = {
       "files.autoSave" = "off";
@@ -69,6 +85,10 @@ in
       }
     ];
   };
+
+  home.packages = with pkgs; [
+    emmet-ls # html/css snippets
+  ];
 
   xdg.configFile."vscode.vim".source = ./vscode.vim;
 }
