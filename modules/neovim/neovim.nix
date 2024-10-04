@@ -326,6 +326,13 @@ in
           vim.keymap.set('n', '<S-Tab>', '<cmd>:BufferLineCyclePrev<cr>')
         '';
       }
+      {
+        plugin = nvim-ts-autotag;
+        type = "lua";
+        config = ''
+          require('nvim-ts-autotag').setup{}
+        '';
+      }
     ];
   };
   
