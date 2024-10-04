@@ -222,7 +222,7 @@ require('render-markdown').setup({
             -- Replaces '[ ]' of 'task_list_marker_unchecked'
             icon = '󰄱',
             -- Highlight for the unchecked icon
-            highlight = 'RenderMarkdownUnchecked',
+            highlight = 'RenderMarkdownchecked',
             -- Highlight for item associated with unchecked checkbox
             scope_highlight = nil,
         },
@@ -230,7 +230,7 @@ require('render-markdown').setup({
             -- Replaces '[x]' of 'task_list_marker_checked'
             icon = '',
             -- Highligh for the checked icon
-            highlight = 'RenderMarkdownChecked',
+            highlight = 'RenderMarkdownUnChecked',
             -- Highlight for item associated with checked checkbox
             scope_highlight = nil,
         },
