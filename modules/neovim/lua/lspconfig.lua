@@ -3,7 +3,7 @@
 --  nvim-cmp supports more types of completion candidates than default lsp
 --  override the capabilities sent to the server such that it can provide
 --  these candidates during a completion request
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require('lspconfig')
 
 -- Config lsp
@@ -68,7 +68,7 @@ lspconfig.cmake.setup{
     capabilities = capabilities
 }
 -- Other languages
-local servers = {'pyright'}
+local servers = {'pyright', 'html'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities, -- offered by nvim-cmp

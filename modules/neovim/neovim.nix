@@ -347,5 +347,6 @@ in
     clang-tools
     lua-language-server
     nodePackages.vscode-json-languageserver
+    vscode-langservers-extracted # html/css/json/eslint
   ];
 }
