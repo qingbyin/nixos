@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 with import <nixpkgs> {};
 let
@@ -344,9 +344,8 @@ in
 #    pluginConfig = builtins.readFile ./coc.vim;
 #  };
 
-  xdg.configFile."nvim/snippets" = {
-    source = ./snippets;
-    recursive = true;
+  home.file.".config/nvim/snippets" = {
+    source = config.lib.file.mkOutOfStoreSymlink ./snippets;
   };
 
   xdg.configFile."nvim/plugins.sh" = {
