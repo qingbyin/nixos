@@ -349,6 +349,11 @@ in
     recursive = true;
   };
 
+  xdg.configFile."nvim/plugins.sh" = {
+    source = ./externalPlugins/plugins.sh;
+    executable =true;
+  };
+
   home.packages = with pkgs; [
     obsidian
     cmake-language-server
