@@ -91,5 +91,4 @@ wk.add({
     { "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Cursor hover" },
     { "gr", "<cmd>Telescope lsp_references theme=ivy<cr>", desc = "List references" },
     { "gy", "<cmd>Telescope lsp_type_definitions<cr>", desc = "To type definition" },
-
 })
