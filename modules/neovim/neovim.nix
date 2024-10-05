@@ -2,11 +2,11 @@
 
 with import <nixpkgs> {};
 let
-virt-column = callPackage ./overlays/virt-column.nix { };
-# obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
-# copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
-# obsidian-bridge = callPackage ./overlays/obsidian-bridge.nix {};
-render-markdown = callPackage ./overlays/render-markdown.nix { };
+  virt-column = callPackage ./overlays/virt-column.nix { };
+  # obsidian-nvim = callPackage ./overlays/obsidian-nvim.nix { };
+  # copilot-cmp-latest = callPackage ./overlays/copilot-cmp-latest.nix { };
+  # obsidian-bridge = callPackage ./overlays/obsidian-bridge.nix {};
+  fromGithub = import ./overlays/fromGitHub.nix;
 in
 {
   programs.neovim = {
@@ -264,7 +264,10 @@ in
         '';
       }
       {
-        plugin = render-markdown;
+        plugin = fromGithub {
+          user = "MeanderingProgrammer";
+          repo = "render-markdown.nvim";
+        };
         type = "lua";
         config = builtins.readFile ./lua/render-markdown.lua;
       }
