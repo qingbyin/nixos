@@ -83,7 +83,7 @@ lspconfig.emmet_ls.setup({
 })
 
 -- Other languages
-local servers = {'pyright', 'html'}
+local servers = {'pyright', 'html', 'nil_ls'}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         capabilities = capabilities, -- offered by nvim-cmp

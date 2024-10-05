@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 with import <nixpkgs> {};
 let
@@ -363,5 +363,6 @@ in
     lua-language-server
     nodePackages.vscode-json-languageserver
     vscode-langservers-extracted # html/css/json/eslint
+    nil # nix lsp server
   ];
 }
