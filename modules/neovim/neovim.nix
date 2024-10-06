@@ -23,7 +23,14 @@ in
       {
         plugin = nvim-colorizer-lua; # color preview
         type = "lua";
-        config = "require'colorizer'.setup()";
+        config = "
+        require'colorizer'.setup{
+          user_default_options ={
+            mode = 'virtualtext',
+            virtualtext = '■',
+            virtualtext_inline = true,
+          } }
+        ";
       }
       # Config corresponding lsp tools for different languages
       {
