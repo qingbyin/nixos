@@ -1,3 +1,4 @@
+# 修改后需要重新depoly: rm ~/.local/share/fcitx5/rime/default.yaml && fcitx5-remote -r
 patch:
   menu/page_size: 9 # 每页显示候选字词数量
   "switcher/hotkeys":  # 输入法切换
