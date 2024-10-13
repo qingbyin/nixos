@@ -83,7 +83,7 @@ wk.add({
 
 vim.api.nvim_set_keymap('n', '<C-p>',
   '<cmd>Telescope find_files find_command=fd,--no-ignore-vcs theme=ivy<cr>', { noremap = true, silent = true })
-vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case theme=ivy<cr>")
+vim.keymap.set("n", "/", "<cmd>Telescope current_buffer_fuzzy_find fuzzy=false case_mode=ignore_case theme=ivy file_ignore_patterns={}<cr>")
 
 wk.add({
     { "gd", "<cmd>Telescope lsp_implementations<cr>", desc = "To impletation" },
