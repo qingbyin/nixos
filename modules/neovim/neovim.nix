@@ -115,6 +115,10 @@ in
           p.org
           p.norg
           p.html
+          p.css
+          p.javascript
+          p.typescript
+          p.vue
           p.yaml
           p.latex
           p.markdown p.markdown_inline]));
