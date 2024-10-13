@@ -5,7 +5,7 @@ i3-msg -t subscribe -m '["workspace", "output"]' | {
 } | jq --unbuffered -c '
     def fake_ws(name): {
         name: name,
-        output: "eDP-1-1",
+        output: "primary",
     };
     . + [fake_ws("1"), fake_ws("2"),
          fake_ws("a"),
