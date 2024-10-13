@@ -559,7 +559,7 @@ nnoremap gm :media<cr>
 nnoremap gh :cd ~<cr>
 nnoremap gq :cd ~/qdrive<cr>
 " sort time ascending
-nnoremap gs :set sort=-mtime,dir
+nnoremap gs :set sort=-mtime,dir<cr>
 
 
 " ------------------------------------------------------------------------------
