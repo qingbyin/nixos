@@ -1,0 +1,30 @@
+# 参考 https://github.com/rafamadriz/friendly-snippets
+snippet !
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>${1:`substitute(vim_snippets#Filename('', 'Page Title'), '^.', '\u&', '')`}</title>
+    </head>
+    <body>
+      $0
+    </body>
+  </html>
+
+snippet !!
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>${1:网页标题}</title>
+      <style>
+        ${2}
+      </style>
+    </head>
+    <body>
+      ${0:<p>网页内容</p>}
+    </body>
+  </html>
+

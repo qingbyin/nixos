@@ -1,75 +1,84 @@
 snippet cb
-	\`\`\`${1:language}
-	${2:code}
-	\`\`\`
+  \`\`\`${1:language}
+  ${2:}
+  \`\`\`
+
+snippet bd
+  **${1}**${0}
+
+snippet tb
+  |  ${1}         |    ${2}       |
+  | ------------- |-------------  |
+  |      ${3}     |    ${4}       |
+  |      ${5}     |    ${5}       |
 
 snippet url
-	[${2:ref}](${1:address})
+  [${2:ref}](${1:address})
 
 snippet high
-	⏫
+  ⏫
 
 snippet low
-	🔽
+  🔽
 
 snippet urge
-	🔺
+  🔺
 
 snippet date
-	`strftime("%Y-%m-%d")`
+  `strftime("%Y-%m-%d")`
 
 snippet note
-	- id: `strftime("%Y%m%d%H%M%S")`
-	- status: #note
-	- tags: [[${1:none}]]
+  - id: `strftime("%Y%m%d%H%M%S")`
+  - status: #note
+  - tags: [[${1:none}]]
 
-	# ${TM_FILENAME_BASE}
+  # ${TM_FILENAME_BASE}
 
-	${2:text}
+  ${2:text}
 
-	---
-	# References
-	
+  ---
+  # References
+  
 snippet td
-	- [ ] ${1:task}
+  - [ ] ${1:task}
 
 snippet -
-	- [ ] ${1:task}
+  - [ ] ${1:task}
 
 snippet ma
-	$${1}$${2}
+  $${1}$${2}
 
 snippet mb
-	$$
-	${1}
-	$$
-	
+  $$
+  ${1}
+  $$
+  
 snippet 2cols
-	<div class="grid grid-cols-10 gap-4">
-		<div class="col-span-5">
+  <div class="grid grid-cols-10 gap-4">
+    <div class="col-span-5">
 
 
-		<!-- The first column -->
-		${1}
+    <!-- The first column -->
+    ${1}
 
-		</div>
-		<div class="col-span-5">
+    </div>
+    <div class="col-span-5">
 
-		<!-- The second column -->
-		${2}
+    <!-- The second column -->
+    ${2}
 
-		</div>
-	</div>
+    </div>
+  </div>
 
 snippet imgsrc
-	<div style="display: flex; justify-content: center;">
-		<img src="/${1}" class="m h-70" />
-	</div>
+  <div style="display: flex; justify-content: center;">
+    <img src="/${1}" class="m h-70" />
+  </div>
 
 snippet page
-	---
-	---
-	# ${1}
+  ---
+  ---
+  # ${1}
 
 snippet !note
   [!note]${1}
