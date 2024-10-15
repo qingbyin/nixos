@@ -7,7 +7,8 @@ pre-install:
 	#mkdir -p ~/.config/nix
 	#echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 	git checkout home-manager
-	#nix run --impure .#homeConfigurations.qyin.activationPackage
+	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+	nix-channel --update
 
 build:
 	home-manager --impure switch --flake .#qyin
