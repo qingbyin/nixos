@@ -12,6 +12,17 @@ in
     homeDirectory = "/home/qyin";
   };
 
+  # 配置 ~/.config/nix/nix.conf
+  nix.settings = {
+    substituters = "https://mirrors.cernet.edu.cn/nix-channels/store https: //cache.nixos.org/";
+  };
+  nix.gc.automatic = true; # 自动定时运行清除不用的包
+
+  # 配置~/.config/nixpkgs/config.nix
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
   # Modify environment setings to make nix compatiable with distro like Ubuntu
   targets.genericLinux.enable = true;
   # Default application dir for nix

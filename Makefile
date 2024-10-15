@@ -6,9 +6,13 @@ pre-install:
 	#. ~/.nix-profile/etc/profile.d/nix.sh
 	#mkdir -p ~/.config/nix
 	#echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-	git checkout home-manager
 	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+	nix-channel --add https://mirrors.sustech.edu.cn/nix-channels/nixpkgs-unstable nixpkgs
 	nix-channel --update
+	nix-shell '<home-manager>' -A install
+	ln -sfr ./home.nix ~/.config/home-manager/home.nix
+	nix-store --add-fixed sha256 license.tar.gz # wechat-uos license
+	home-manager --impure build
 
 build:
 	home-manager --impure switch --flake .#qyin
