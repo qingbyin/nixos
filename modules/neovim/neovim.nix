@@ -87,12 +87,28 @@ in
       #
       vim-surround # Easy to add/delete/change pairs
       vim-repeat # Cooporated with surround.vim, so that ds, cs, yss can be repeated
+      # {
+      #   plugin = vim-commentary; # Comment using <gcc>
+      #   config = ''
+      #       autocmd FileType nix setlocal commentstring=#\ %s
+      #       autocmd FileType cpp setlocal commentstring=//\ %s
+      #   '';
+      # }
       {
-        plugin = vim-commentary; # Comment using <gcc>
-        config = ''
-            autocmd FileType nix setlocal commentstring=#\ %s
-            autocmd FileType cpp setlocal commentstring=//\ %s
-        '';
+        # 一个文件中多种语言采用对应的不同注释
+        plugin = nvim-ts-context-commentstring;
+        type = "lua";
+        config = "require('ts_context_commentstring').setup { enable_autocmd = false, }";
+      }
+      {
+        # 支持treesitter的gcc注释(替代vim-commentary，并且增加gbc块注释)
+        plugin = comment-nvim;
+        type = "lua";
+        config = "
+          require('Comment').setup {
+            pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+          }
+          ";
       }
       vim-smoothie # Smooth scroll
       vim-lastplace # Reopen files at the last edit position
