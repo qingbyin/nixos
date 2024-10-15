@@ -1,13 +1,13 @@
 
 .ONSHELL:
-install:
+pre-install:
 	sudo apt install git curl
-	curl -L https://nixos.org/nix/install | sh -s
-	. ~/.nix-profile/etc/profile.d/nix.sh
-	mkdir -p ~/.config/nix
-	echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-	git checkout ubuntu
-	nix run --impure .#homeConfigurations.qyin.activationPackage
+	curl -L https://nixos.org/nix/install | sh -s -- --daemon
+	#. ~/.nix-profile/etc/profile.d/nix.sh
+	#mkdir -p ~/.config/nix
+	#echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+	git checkout home-manager
+	#nix run --impure .#homeConfigurations.qyin.activationPackage
 
 build:
 	home-manager --impure switch --flake .#qyin
