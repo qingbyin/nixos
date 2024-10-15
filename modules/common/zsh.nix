@@ -6,6 +6,15 @@
     enable = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    historySubstringSearch.enable = true;
+    historySubstringSearch.searchUpKey = "^P";
+    historySubstringSearch.searchDownKey = "^N";
+    history = {
+      path = "$HOME/.zsh_history";
+      save = 1000;
+      size = 1000;
+    };
+    prezto.color = true; # color output
     initExtra = ''
       export PATH="$HOME/.local/bin:$PATH"
       export LOCALIP=127.0.0.1
@@ -26,6 +35,19 @@
           source "$HOME/.userenv.sh"
       fi
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+      # enable color support of ls and also add handy aliases
+      if [ -x /usr/bin/dircolors ]; then
+          test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+          #alias ls='ls --color=auto'
+          alias ls='colorls'
+          alias dir='dir --color=auto'
+          alias vdir='vdir --color=auto'
+          alias grep='grep --color=auto'
+          alias fgrep='fgrep --color=auto'
+          alias egrep='egrep --color=auto'
+          alias ip='ip -c'
+      fi
     '';
     plugins = with pkgs; [
       {
@@ -47,4 +69,8 @@
   };
 
   home.file.".p10k.zsh".source =./.p10k.zsh;
+
+  home.packages = with pkgs; [
+    colorls # color output of ls command
+  ];
 }
