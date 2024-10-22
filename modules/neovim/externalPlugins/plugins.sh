@@ -3,7 +3,8 @@
 
 # 插件列表
 plugins=(
-  "https://gh-proxy.com/github.com/turbio/bracey.vim" # 需进入目录运行`npm install --prefix server`
+  # WARN: 需进入目录运行`npm install --prefix server`，否则报错connection refused
+  "https://gh-proxy.com/github.com/gen4438/bracey.vim"
 )
 
 # 插件安装目录
