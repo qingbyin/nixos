@@ -15,7 +15,7 @@ in
   # 配置 ~/.config/nix/nix.conf
   nix.package = pkgs.nix;
   nix.settings = {
-    substituters = "https://mirrors.sustech.edu.cn/nix-channels/store https: //cache.nixos.org/";
+    substituters = "https://mirrors.sustech.edu.cn/nix-channels/store https://cache.nixos.org/";
   };
   nix.gc.automatic = true; # 自动定时运行清除不用的包
 
